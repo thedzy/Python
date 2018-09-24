@@ -236,26 +236,3 @@ class ProgressBar(tk.Tk):
 		:return: bool
 		"""
 		return self.active
-
-
-def main():
-	progressLength = 100
-
-	app = ProgressBar()
-	app.setTitle("Progressing...")
-	app.setMax(progressLength)
-	app.setColour('#cc0000', '#000000')
-	app.setDeterminante(True)
-
-	for progressCount in range(progressLength):
-		time.sleep(.1)  # do real work here
-		if app.isActive():
-			# Se the value to progressCount
-			#app.setPosition(progressCount)
-			# Incerement by 1
-			app.setIncrement(1)
-		print(progressCount)
-
-
-if __name__ == "__main__":
-	main()
