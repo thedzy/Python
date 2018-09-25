@@ -1,6 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+Script:	progress_bar4.py
+Date:	2018-09-24
+
+Platform: MacOS
+
+Description:
+Customisable colour, title and header
+Shows percentage.
+
+"""
+__author__      = "thedzy"
+__copyright__   = "Copyright 2018, thedzy"
+__license__     = "GPL"
+__version__     = "4.0"
+__maintainer__  = "thedzy"
+__email__       = "thedzy@hotmail.com"
+__status__      = "Developer"
+
 import time
 import os, sys
 

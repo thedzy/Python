@@ -1,5 +1,24 @@
 #!/usr/bin/env python3
 
+"""
+Script:	progress_bar5.py
+Date:	2018-09-24
+
+Platform: MacOS
+
+Description:
+Creates a GUI progress bar
+Customisable colour, title and header
+
+"""
+__author__      = "thedzy"
+__copyright__   = "Copyright 2018, thedzy"
+__license__     = "GPL"
+__version__     = "5.0"
+__maintainer__  = "thedzy"
+__email__       = "thedzy@hotmail.com"
+__status__      = "Developer"
+
 
 import tkinter as tk
 from tkinter import ttk
