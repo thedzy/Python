@@ -1,5 +1,5 @@
 # Python
 Samples of Python code
 
-## Includes
-Use the import of copy and paste the code into your script.  Examples provided when importing.
+## ProgressBar
+Includes several examples of creating a text based or GUI progress bar while executing scripts
