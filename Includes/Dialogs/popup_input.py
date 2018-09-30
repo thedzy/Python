@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 """
-Script:	popup_userpass.py
+Script:	popup_input.py
 Date:	2018-09-30
 
 Platform: MacOS
 
 Description:
-Creates a GUI input dialog for username and password
+Creates a GUI input dialog for text
 
 """
 __author__      = "thedzy"
@@ -24,7 +24,7 @@ import tkinter as tk
 from tkinter import ttk
 
 
-class popupUserPass(tk.Tk):
+class popupInput(tk.Tk):
 	"""
 	Class to create a vusername password dialog
 	"""
@@ -48,7 +48,7 @@ class popupUserPass(tk.Tk):
 		self.geometry("+%d+%d" % (x, y))
 
 		# Set min/max sizing for resizing
-		self.minsize(width=200, height=105)
+		self.minsize(width=400, height=105)
 		self.maxsize(width=1600, height=105)
 
 		windowcolor = 'grey90'
@@ -56,23 +56,18 @@ class popupUserPass(tk.Tk):
 
 		# Frame 1
 		self.frame1 = tk.Frame(self, background=windowcolor)
-		self.userlabel = ttk.Label(self.frame1, text="Username", justify="left", anchor="w", font=("Helvetica", 16), width=10, background=windowcolor)
-		self.userlabel.pack(side="left")
-
-		self.username = tk.StringVar()  # Password variable
-		self.userfield = tk.Entry(self.frame1, textvariable=self.username)
-		self.userfield.pack(fill=tk.X, expand=True, side=tk.RIGHT)
+		self.inputlabelValue = tk.StringVar(value="Input:")
+		self.inputlabel = ttk.Label(self.frame1,  textvariable=self.inputlabelValue, justify="left", anchor="w", font=("Helvetica", 16), width=10, background=windowcolor)
+		self.inputlabel.pack(fill=tk.X, expand=True)
 
 		self.frame1.pack(fill=tk.X, expand=True, padx=5, pady=5)
 
 		# Frame 2
 		self.frame2 = tk.Frame(self, background=windowcolor)
-		self.passlabel = ttk.Label(self.frame2, text="Password", justify="left", anchor="w", font=("Helvetica", 16), width=10, background=windowcolor)
-		self.passlabel.pack(side="left")
 
-		self.password = tk.StringVar()  # Password variable
-		self.passfield = tk.Entry(self.frame2, textvariable=self.password, show="*")
-		self.passfield.pack(fill=tk.X, expand=True, side=tk.RIGHT)
+		self.input = tk.StringVar()
+		self.inputfield = tk.Entry(self.frame2, textvariable=self.input)
+		self.inputfield.pack(fill=tk.X, expand=True)
 
 		self.frame2.pack(fill=tk.X, expand=True, padx=5)
 
@@ -99,8 +94,6 @@ class popupUserPass(tk.Tk):
 		self.close()
 
 	def buttonCancel(self):
-		self.username.set('')
-		self.password.set('')
 		self.exitcode = False
 		self.close()
 
@@ -112,9 +105,15 @@ class popupUserPass(tk.Tk):
 		# Detroy the window and mark and inactive
 		self.destroy()
 
-	def getCredentials(self, title="Login"):
+	def getInput(self, title="Login", question="Please input:", secret=False):
+		# Hide input
+		if secret:
+			self.inputfield.configure(show="*")
+			pass
+
 		self.setTitle(title)
+		self.inputlabelValue.set(question)
 		self.wm_deiconify()
-		self.userfield.focus_force()
+		self.inputfield.focus_force()
 		self.wait_window()
-		return self.username.get(), self.password.get(), self.exitcode
+		return self.input.get(), self.exitcode

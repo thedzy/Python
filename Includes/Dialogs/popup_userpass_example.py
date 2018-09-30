@@ -9,6 +9,7 @@ def main():
 
 	if exitcode:
 		print("Username: %s\nPassword: %s\nExit Code: %d\n" % (username, password, exitcode))
+		# After using the username it is best to destroy the variable or reset it's contents
 	else:
 		print("Exited")
 
