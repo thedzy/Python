@@ -1,5 +1,6 @@
 # jss_downloaders
 A collecttion of scripts to download jamf data for offline searching
+*Note: You will need to include the python scripts Dialogs/popup_userpass.py and ProgressBar/progress_bar5b.py
 
 ## download_jss_advancedsearches.py
 Downloads the Advanced search criterias.
