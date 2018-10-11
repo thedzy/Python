@@ -6,3 +6,6 @@ Use the import of copy and paste the code into your script.  Examples provided w
 
 ## Scripts
 Stand alone scripts
+
+## Snippits
+Examples of functionality that can be embedded or used in other scripts
