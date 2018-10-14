@@ -1,6 +1,8 @@
 # Snippets
 Examples of functionality that can be embedded or used in other scripts
 
+## arguments_named.sh
+Getting names arguments supplied after the command/file (ex. --file)
 ## ## arguments_positional.sh
 Getting positional arguments supplied after the command/file
 ## mysql_connection.py
