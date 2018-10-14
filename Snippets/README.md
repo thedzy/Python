@@ -1,6 +1,8 @@
 # Snippets
 Examples of functionality that can be embedded or used in other scripts
 
+## ## arguments_positional.sh
+Getting positional arguments supplied after the command/file
 ## mysql_connection.py
 Simple mySQL database connecion and query
 ## redirecting_screen_to_file.sh
