@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
 	parser_group_shift = optparse.OptionGroup(parser, "Colour shifting values (stackable with gain)",
 	                    "increase/decrease values relative to thier initial values, "
-	                    "ie. 1.0 is 100% of the normal red/green/blue"
+	                    "ie. 1.0 is 100% of the normal red/green/blue, "
 	                    "ie. using 1.0 for all colours will leave no shift and produce grey")
 	parser_group_shift.add_option("-r", '--redshift',
 	                  action="store", type="float", dest="redshift",
@@ -155,7 +155,7 @@ if __name__ == "__main__":
 
 	parser_group_gain = optparse.OptionGroup(parser, "Colour gain values (stackable with shift)",
 	                                          "These increases/decreases the rgb by a fixed value, "
-	                                          "ie. ie. 0 will have a RGB value no higher than the red/green/blue"
+	                                          "ie. ie. 0 will have a RGB value no higher than the normal red/green/blue, "
 	                                          "ie. using 0 for all colours will leave no gain and produce grey")
 	parser_group_gain.add_option("-R", '--redgain',
 	                  action="store", type="int", dest="redgain",
