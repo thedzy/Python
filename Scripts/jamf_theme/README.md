@@ -16,9 +16,9 @@ The default here is Linux
     The file that will be read and written.  Default: /usr/local/jss/tomcat/webapps/ROOT/ui/styles/main.css
 
 Colour shifting values (stackable with gain):
-increase/decrease values relative to thier initial values, ie. 1.0 is
-100% of the normal red/green/blueie. using 1.0 for all colours will
-leave no shift and produce grey
+increase/decrease values relative to thier initial values, 
+ie. 1.0 is 100% of the normal red/green/blue
+ie. using 1.0 for all colours will leave no shift and produce grey
 
 -r REDSHIFT, --redshift=REDSHIFT
     Percentage gain of red
@@ -28,9 +28,9 @@ leave no shift and produce grey
     Percentage gain of blue
 
 Colour gain values (stackable with shift):
-These increases/decreases the rgb by a fixed value, ie. ie. 0 will
-have a RGB value no higher than the red/green/blueie. using 0 for all
-colours will leave no gain and produce grey
+These increases/decreases the rgb by a fixed value, 
+ie. 0 will have a RGB value no higher than the normal red/green/blue
+ie. using 0 for all colours will leave no gain and produce grey
 
 -R REDGAIN, --redgain=REDGAIN
     numeric gain of red
