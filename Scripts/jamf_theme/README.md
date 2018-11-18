@@ -1,5 +1,5 @@
 # jss_theme
-This will apply a monochromatic colour theme to your Jamd instance using colour values that you specify.
+This will apply a monochromatic colour theme to your Jamf instance using colour values that you specify.
 
 This can be useful for differntialing different instances to avoid errors as each instance will have noticable visual appearance.
 
