@@ -47,11 +47,11 @@ ie. using 0 for all colours will leave no gain and produce grey
 
 ## Screenshots:
 ### Blue
-```jamf_teme.py -b 1.2 -B 20 -c```
+```jamf_theme.py -b 1.2 -B 20 -c```
 ![Blue](https://raw.githubusercontent.com/thedzy/Python/master/Scripts/jamf_theme/images/jamf_theme_blue.jpg)
 
 ### Red
-```jamf_teme.py -r 1.2 -R 20 -c```
+```jamf_theme.py -r 1.2 -R 20 -c```
 ![Red](https://raw.githubusercontent.com/thedzy/Python/master/Scripts/jamf_theme/images/jamf_theme_red.jpg)
 
 ### Teal
