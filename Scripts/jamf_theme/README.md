@@ -3,8 +3,8 @@ This will apply a monochromatic colour theme to your Jamd instance using colour 
 
 This can be useful for differntialing different instances to avoid errors as each instance will have noticable visual appearance.
 
-Options:
---version             show program's version number and exit
+## Options:
+```--version             show program's version number and exit
 -h, --help            show this help message and exit
 -c, --contrast        add contrast to colour prior to shifting/gain
 -d, --debug           see the value changes and do not commit the changes
@@ -38,3 +38,9 @@ colours will leave no gain and produce grey
     numeric gain of green
 -B BLUGAIN, --bluegain=BLUGAIN
     numeric gain of blue
+```
+
+## Notes:
+1. Using --contrast is highly recommended, I might just make it default at some point.
+2. Make a backup for your css.  Although this will back it up for you, on second run, if you don't restore it, it will wipe it out.
+3. Always restore from backup before attempting to change as it will attempt to change the changes.  This can have some cool effect like increasing the cintrat more.
