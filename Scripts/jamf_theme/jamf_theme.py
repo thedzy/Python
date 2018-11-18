@@ -108,7 +108,7 @@ def main(stylefile, redshift, grnshift, blushift, redgain, grngain, blugain, con
 	else:
 		print("No file written")
 
-	print("Do not restart jamf, force reload or reload from source in your bowser")
+	print("Do not restart jamf, force reload or reload from source in your browser")
 	exit()
 
 
