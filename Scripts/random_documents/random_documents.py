@@ -7,7 +7,7 @@ Date:	2018-09-30
 Platform: MacOS
 
 Description:
-Creates a radome text (language like) document.
+Creates a radom text (English language like) document.
 With no parameters, it outputs to screen
 With a file specified, it will output to file
 
