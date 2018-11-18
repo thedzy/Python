@@ -131,7 +131,8 @@ def colourContrastHex(hex):
 if __name__ == "__main__":
 	parser = optparse.OptionParser("%prog [options]\n %prog will apply a monochromatic colour theme to your Jamd instance using colour values that you specify.", version="%prog 1.0")
 
-	parser_group_file= optparse.OptionGroup(parser,"You file will differ depending on your operating system.")
+	parser_group_file= optparse.OptionGroup(parser,"Your file will differ depending on your operating system.",
+	                                        "The default here is Linux")
 	parser_group_file.add_option('-f', '--file',
 	                  action="store", dest="stylefile", default='/usr/local/jss/tomcat/webapps/ROOT/ui/styles/main.css',
 	                  help="The file that will be read and written.  Default: /usr/local/jss/tomcat/webapps/ROOT/ui/styles/main.css")
@@ -146,10 +147,10 @@ if __name__ == "__main__":
 	                  help="Percentage gain of red", default=1.0)
 	parser_group_shift.add_option("-g", '--greenshift',
 	                  action="store", type="float", dest="grnshift",
-	                  help="Percentage gain, ie. 2.0 is 200% of the normal blue (stackable with gain)", default=1.0)
+	                  help="Percentage gain of green", default=1.0)
 	parser_group_shift.add_option("-b", '--blueshift',
 	                  action="store", type="float", dest="blushift",
-	                  help="Percentage gain, ie. 0.5 is 50% of the normal green (stackable with gain)", default=1.0)
+	                  help="Percentage gain of blue", default=1.0)
 	parser.add_option_group(parser_group_shift)
 
 	parser_group_gain = optparse.OptionGroup(parser, "Colour gain values (stackable with shift)",
@@ -158,13 +159,13 @@ if __name__ == "__main__":
 	                                          "ie. using 0 for all colours will leave no gain and produce grey")
 	parser_group_gain.add_option("-R", '--redgain',
 	                  action="store", type="int", dest="redgain",
-	                  help="numeric gain, ie. 0 will have a RGB value no higher than normal red (stackable with shift)", default=0)
+	                  help="numeric gain of red", default=0)
 	parser_group_gain.add_option("-G", '--greengain',
 	                  action="store", type="int", dest="grngain",
-	                  help="numeric gain, ie. 20 will have a RGB value 20 higher than normal blue (stackable with shift)", default=0)
+	                  help="numeric gain of green", default=0)
 	parser_group_gain.add_option("-B", '--bluegain',
 	                  action="store", type="int", dest="blugain",
-	                  help="numeric gain, ie. -50 will have a RGB value 50 lower than normal green (stackable with shift)", default=0)
+	                  help="numeric gain of blue", default=0)
 	parser.add_option_group(parser_group_gain)
 
 	parser.add_option('-c', '--contrast',
