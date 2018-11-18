@@ -41,7 +41,7 @@ ie. using 0 for all colours will leave no gain and produce grey
 ```
 
 ## Notes:
-1. Using --contrast is highly recommended, I might just make it default at some point.
+1. **Using --contrast is highly recommended, I might just make it default at some point.**
 2. Make a backup for your css.  Although this will back it up for you, on second run, if you don't restore it, it will wipe it out.
 3. Always restore from backup before attempting to change as it will attempt to change the changes.  This can have some cool effect like increasing the cintrat more.
 
