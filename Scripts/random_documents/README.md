@@ -2,6 +2,7 @@
 Creates a radom text document in a pseudo-english like language.  Contains normal punctuation and can serve as placement for text and documents untill content is generated. *Similar to Loreum Ipsum
 
 *With no parameters, it outputs to screen*
+
 *With a file specified, it will output to file*
 
 ## Sample
