@@ -7,6 +7,8 @@ Getting names arguments supplied after the command/file (ex. --file)
 Getting positional arguments supplied after the command/file
 ## embedding_shell.py
 Embedding (a) shell line(s) into a python script
+## horitzontal_rule.py
+Create a HR (Horizontal Rule)
 ## mysql_connection.py
 Simple mySQL database connecion and query
 ## redirecting_screen_to_file.py
