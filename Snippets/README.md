@@ -11,6 +11,8 @@ Embedding (a) shell line(s) into a python script
 Create a HR (Horizontal Rule)
 ## mysql_connection.py
 Simple mySQL database connecion and query
+## paths_and_names.py
+Extracting paths, filesnames and relative paths
 ## redirecting_screen_to_file.py
 Redirect all screen output to a file
 ## root_privilages_required.py
