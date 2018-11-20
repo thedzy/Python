@@ -5,6 +5,8 @@ Examples of functionality that can be embedded or used in other scripts
 Getting names arguments supplied after the command/file (ex. --file)
 ## arguments_positional.py
 Getting positional arguments supplied after the command/file
+## embedding_shell.py
+Embedding (a) shell line(s) into a python script
 ## mysql_connection.py
 Simple mySQL database connecion and query
 ## redirecting_screen_to_file.py
