@@ -21,6 +21,8 @@ Extracting paths, filesnames and relative paths
 Print out all variables that the script can access.  Created by the system or user
 ## randoms.py
 Create random variables of text, numbers, hex, and Base64
+## recursive_loops.py
+Examples of recurive loops in python3
 ## redirecting_screen_to_file.py
 Redirect all screen output to a file
 ## root_privilages_required.py
