@@ -29,3 +29,5 @@ Redirect all screen output to a file
 Run the script with root privilages
 ## sqlite3_connection.py
 Simple sqlite3 database connecion, insert and query
+## try_and_catch.py
+Simple try and catch statement for rolling back on a statement
