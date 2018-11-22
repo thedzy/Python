@@ -17,6 +17,8 @@ Create a HR (Horizontal Rule)
 Simple mySQL database connecion and query
 ## paths_and_names.py
 Extracting paths, filesnames and relative paths
+## print_system_varaibles.py
+Print out all variables that the script can access.  Created by the system or user
 ## redirecting_screen_to_file.py
 Redirect all screen output to a file
 ## root_privilages_required.py
