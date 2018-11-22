@@ -9,6 +9,8 @@ Getting positional arguments supplied after the command/file
 Embedding (a) shell line(s) into a python script
 ## get_file_info.py
 Get the mode, dates, and extended innfo of a file
+## get_user_input.py
+Using read to get input from the user
 ## horitzontal_rule.py
 Create a HR (Horizontal Rule)
 ## mysql_connection.py
