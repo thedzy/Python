@@ -19,6 +19,8 @@ Simple mySQL database connecion and query
 Extracting paths, filesnames and relative paths
 ## print_system_varaibles.py
 Print out all variables that the script can access.  Created by the system or user
+## randoms.py
+Create random variables of text, numbers, hex, and Base64
 ## redirecting_screen_to_file.py
 Redirect all screen output to a file
 ## root_privilages_required.py
