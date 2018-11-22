@@ -31,9 +31,7 @@ print(exponents(9,3))
 
 # Recursive loop to create directory structure
 def dir_struct(path, subpath, index=0):
-
 	items = os.listdir(path + subpath)
-
 	for item in items:
 		if os.path.isfile("{0}/{1}/{2}".format(path, subpath, item)):
 			print("\t" * (index + 1) + item )
