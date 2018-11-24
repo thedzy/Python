@@ -137,7 +137,7 @@ class Notification(object):
 
 		# If reply option
 		if notification.activationType() is 3:
-			self.responseMessage = notification.response()
+			self.responseMessage = notification.response().string()
 
 		# In option selection
 		if notification.activationType() is 4:

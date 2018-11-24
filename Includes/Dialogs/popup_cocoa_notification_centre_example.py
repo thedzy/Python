@@ -12,7 +12,7 @@ def main():
 	responseCode, responseMessage = notification_msg.getResponse()
 
 	if responseCode == 3:
-		print("Response: " + str(responseMessage))
+		print("Response: " + responseMessage)
 	else:
 		print("User Cancelled")
 
