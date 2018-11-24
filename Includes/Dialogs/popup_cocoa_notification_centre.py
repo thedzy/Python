@@ -104,7 +104,7 @@ class Notification(object):
 
 
 		# If more than 2 buttons are set, set hte options ans force the appearance
-		if self.buttons > 2 and not self.response:
+		if len(self.buttons) > 2 and not self.response:
 			actions = NSMutableArray.alloc().init()
 			for buttonNum in range(2, len(self.buttons)):
 				action = NSUserNotificationAction.alloc().init()
