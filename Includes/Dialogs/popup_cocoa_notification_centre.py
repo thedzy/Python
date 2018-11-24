@@ -26,9 +26,6 @@ except:
 	print("You need to have the PyObjC frameworks installed")
 	print("easy_install -U pyobjc")
 
-
-import time
-
 class Notification(object):
 	"""
 	Notification (Class)
