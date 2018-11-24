@@ -1,7 +1,7 @@
 # Dialogs
 Samples of GUI dialogs
 
-## popup_cocoa_dialog_example.py
+## popup_cocoa_dialog.py
 GUI dialog to message the user, customisable with buttons
 ## popup_input.py
 GUI dialog to get a text input from the user, optionally hidden from screen
