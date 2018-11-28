@@ -13,6 +13,8 @@ Get the mode, dates, and extended innfo of a file
 Using read to get input from the user
 ## horitzontal_rule.py
 Create a HR (Horizontal Rule)
+## multithreading.py
+A simple multithreaded script
 ## mysql_connection.py
 Simple mySQL database connecion and query
 ## paths_and_names.py
