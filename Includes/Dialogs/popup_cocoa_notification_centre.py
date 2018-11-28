@@ -176,6 +176,7 @@ class Notification(object):
 		:param notification: NSUserNotification
 		:return: Complete (bool)
 		"""
+		print(test)
 		# Stop even loop if start with runConsoleEventLoop
 		AppHelper.stopEventLoop()
 		return True
