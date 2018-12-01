@@ -1,6 +1,8 @@
 # Dialogs
 Samples of GUI dialogs
 
+## popup_cocoa_colour.py
+GUI dialog to aloow the user to select a colour
 ## popup_cocoa_dialog.py
 GUI dialog to message the user, customisable with buttons
 ## popup_cocoa_file.py
