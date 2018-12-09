@@ -18,3 +18,6 @@ GUI pgressbar.  Simple.
 
 ## progress_bar5b.py
 GUI pgressbar.  Colour functions.  Percentage.  Predictive time.
+
+## progress_bar6.py
+GUI pgressbar.  Colour functions.  Percentage.  Predictive time.  Output window.
