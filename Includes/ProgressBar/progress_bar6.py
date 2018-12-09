@@ -140,6 +140,11 @@ class ProgressBar(tk.Tk):
 		self.__refresh()
 
 	def addOutput(self, text):
+		"""
+		Add output to the progress bar, creating a text output panel
+		:param text: Text to add to the window
+		:return: void
+		"""
 		self._output.insert(tk.END, str(text) + "\n")
 
 		if self._windowHeight < (self.winfo_screenheight() - 100):
@@ -257,7 +262,10 @@ class ProgressBar(tk.Tk):
 		return colourValue
 
 	def close(self):
-		# Detroy the window and mark and inactive
+		"""
+		Detroy the window and mark and inactive
+		:return: void
+		"""
 		self.destroy()
 		self._active = False
 
