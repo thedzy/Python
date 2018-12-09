@@ -16,7 +16,7 @@ __author__      = "thedzy"
 __copyright__   = "Copyright 2018, thedzy"
 __license__     = "GPL"
 __version__     = "5.0b"
-__maintainer__  = "Rob thedzy"
+__maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
