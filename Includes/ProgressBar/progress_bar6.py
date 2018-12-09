@@ -122,7 +122,7 @@ class ProgressBar(tk.Tk):
 		"""
 		return self._progress["value"]
 
-	def setIncrement(self, increment):
+	def setIncrement(self, increment=1):
 		''' Increment the bar by a value
 		:param increment: integer
 		'''
@@ -148,12 +148,12 @@ class ProgressBar(tk.Tk):
 		self._output.insert(tk.END, str(text) + "\n")
 
 		if self._windowHeight < (self.winfo_screenheight() - 100):
-			# if tkFont gets fixed, will use meassure here instead of a fixed value
+			# if tkFont gets fixed, will use measure here instead of a fixed value
 			self._windowHeight = int(len(self._output.get(1.0, tk.END).splitlines()) * 13.0) + 70
 
 		self.minsize(width=1000, height=self._windowHeight)
 		self.maxsize(width=1600, height=self._windowHeight)
-		pass
+
 
 	def setColour(self, barColour='#000000', backColour='#ffffff'):
 		"""
