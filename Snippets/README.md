@@ -17,6 +17,8 @@ Create a HR (Horizontal Rule)
 A simple multithreaded script
 ## mysql_connection.py
 Simple mySQL database connecion and query
+## open_url
+Open a url in an external browser
 ## paths_and_names.py
 Extracting paths, filesnames and relative paths
 ## print_system_varaibles.py
