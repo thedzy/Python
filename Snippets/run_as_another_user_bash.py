@@ -7,7 +7,7 @@ import subprocess
 
 def main():
 	# Use os.getlogin() in place of the username if you want to run a command as the current user while the script runs as root
-	run_result = run_bash_as_user('ps -aex', "account")
+	run_result = run_bash_as_user('whoami', "account")
 
 	if run_result[0] is not None:
 		print("Stdout : %s" % run_result[0].decode("utf-8"))
