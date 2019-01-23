@@ -31,6 +31,10 @@ Examples of recurive loops in python3
 Redirect all screen output to a file
 ## root_privilages_required.py
 Run the script with root privilages
+## run_as_another_user.py
+Run commands under another user (requires root)
+## run_as_another_user_bash.py
+Run bash commands under another user (requires root)
 ## sqlite3_connection.py
 Simple sqlite3 database connecion, insert and query
 ## try_and_catch.py
