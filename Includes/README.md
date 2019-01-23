@@ -9,3 +9,6 @@ Includes several examples of creating a text based or GUI progress bar while exe
 
 ## simple_multitasking
 Includes an example of parallel processes and retrieving the results
+
+## wireless
+Includes and example of retreiving information about hardware and networks
