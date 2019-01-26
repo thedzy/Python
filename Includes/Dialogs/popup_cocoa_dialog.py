@@ -50,7 +50,7 @@ class Alert(object):
 		self.informativeText = kwargs.get('informativeText',"")
 		self.icon = kwargs.get('icon', None)
 		self.buttons = kwargs.get('buttons',['OK'])
-		if not kwargs.get('style', self.INFORMATIONAL) in [ self.INFORMATIONAL, self.INFORMATIONAL, self.CRITICAL ]:
+		if not kwargs.get('style', self.INFORMATIONAL) in [ self.WARNING, self.INFORMATIONAL, self.CRITICAL ]:
 			self.style = self.INFORMATIONAL
 		else:
 			self.style = kwargs.get('style', self.INFORMATIONAL)
