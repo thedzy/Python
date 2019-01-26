@@ -65,7 +65,7 @@ Dynamically queries the interface for the current channel. Returns nil in the ca
 
 ---
 
-##get_configuration(self):
+## get_configuration(self):
 Returns an immutable configuration for an AirPort WLAN interface.
 ## get_configuration_networkProfiles(self):
 The order of this array corresponds to the order in which the the CWNetworkProfile objects participate in the auto-join process.
@@ -93,3 +93,4 @@ Connects to the given enterprise network.
 ## removeNetwork(self, *ssid):
 Remove SSIDs from known and preferred networks
 
+** This API goes much deeper, indicate if you want to see more functions added
