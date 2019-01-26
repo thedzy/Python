@@ -10,7 +10,7 @@ Includes several examples of dialogs using the cocoa/objc framework that you can
 ## dialogs_tkinter
 Includes several examples of dialogs using the tkinter framework that you can create to interface with the user
 
-## progressBar
+## progress_bar
 Includes several examples of creating a text based or GUI progress bar while executing scripts
 
 ## simple_multitasking
