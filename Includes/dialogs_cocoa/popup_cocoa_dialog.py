@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 """
-Script:	popup_input.py
+Script:	popup_cocoa_dialog.py
 Date:	2018-11-24
 
 Platform: MacOS
 
 Description:
-Creates a GUI input dialog using the PyObjC framework
+Creates a GUI ok/cancel dialog using the PyObjC framework
 
 """
 __author__      = "thedzy"
