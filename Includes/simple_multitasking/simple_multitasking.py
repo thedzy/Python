@@ -16,9 +16,9 @@ __maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
-
-from threading import Thread
 import time
+from threading import Thread
+
 
 class ThreadFunction(Thread):
 	def __init__(self, target, *args, **kwargs):

@@ -6,10 +6,10 @@ import os
 import secrets
 
 # DIGITS, 0-32768
-print(random.randrange(0,32768))
+print(random.randrange(0, 32768))
 
 # DIGITS, 1-10
-print(random.randrange(0,10))
+print(random.randrange(0, 10))
 
 # Random character
 print(random.choice(string.ascii_letters))
@@ -33,4 +33,4 @@ print(os.urandom(16).decode("utf-16"))
 print("".join([random.choice(string.ascii_letters + string.digits) for i in range(32)]))
 
 # DIGITS, 0-99999999 (8 digits formatted)
-print("".join([str(random.randrange(0,9)) for i in range(8)]))
+print("".join([str(random.randrange(0, 9)) for i in range(8)]))

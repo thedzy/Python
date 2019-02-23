@@ -14,13 +14,13 @@ returncode = os.system(command)
 if returncode == 0:
 	print("Success\n")
 
-
 """
 Using subprocess.run
 Pros: Returns stdout, stderr, return code
 Cons: More complicated
 """
-processinfo = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
+processinfo = subprocess.run(command,
+                             shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
 print(processinfo.stdout)
 if processinfo.returncode == 0:
 	print("Success\n")
@@ -38,5 +38,3 @@ if process.returncode == 0:
 	print(output[0].decode("utf-8"))
 else:
 	print(output[1].decode("utf-8"))
-
-

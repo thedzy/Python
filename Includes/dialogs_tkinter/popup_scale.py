@@ -18,8 +18,8 @@ __maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
-
-import sys, os
+import os
+import sys
 import tkinter as tk
 from tkinter import ttk
 
@@ -65,7 +65,7 @@ class popupInput(tk.Tk):
 		# Frame 2
 		self.frame2 = tk.Frame(self, background=windowcolor)
 		self.input = tk.IntVar()
-		self.inputfield = tk.Scale(self.master, variable=self.input, from_=0, to=100, orient="horizontal", troughcolor="white", showvalue=True, font=("Helvetica", 16),background=windowcolor)
+		self.inputfield = tk.Scale(self.master, variable=self.input, from_=0, to=100, orient="horizontal", troughcolor="white", showvalue=True, font=("Helvetica", 16), background=windowcolor)
 		self.inputfield.pack(fill=tk.X, expand=True)
 
 		self.frame2.pack(fill=tk.X, expand=True, padx=5)
@@ -82,8 +82,9 @@ class popupInput(tk.Tk):
 		# Try to set window focus
 		try:
 			from Cocoa import NSRunningApplication, NSApplicationActivateIgnoringOtherApps
-		except:
-			print ("pip3 install pyobjc")
+		except ImportError as err:
+			print(err)
+			print("pip3 install pyobjc")
 			sys.exit()
 		app = NSRunningApplication.runningApplicationWithProcessIdentifier_(os.getpid())
 		app.activateWithOptions_(NSApplicationActivateIgnoringOtherApps)
@@ -108,7 +109,7 @@ class popupInput(tk.Tk):
 		# Hide input
 		self.setTitle(title)
 		self.inputlabelValue.set(question)
-		self.inputfield.configure(tickinterval=max/4,to=max)
+		self.inputfield.configure(tickinterval=max/4, to=max)
 		self.wm_deiconify()
 		self.inputfield.focus_force()
 		self.wait_window()

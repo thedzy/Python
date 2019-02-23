@@ -27,10 +27,11 @@ try:
 	import Cocoa
 	from AppKit import *
 	from PyObjCTools import AppHelper
-
-except:
+except ImportError as err:
+	print(err)
 	print("You need to have the PyObjC frameworks installed")
 	print("easy_install -U pyobjc")
+
 
 class ColourDialog(object):
 
@@ -68,10 +69,8 @@ class ColourDialog(object):
 		NSApp.activateIgnoringOtherApps_(True)
 		AppHelper.runConsoleEventLoop()
 
-
 	def changeColor_sender(self, sender):
 		print("changeColor_sender")
-
 
 	def picked_(self, sender):
 		print("picked")

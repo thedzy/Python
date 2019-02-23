@@ -18,8 +18,8 @@ __maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
-
-import sys, os
+import os
+import sys
 import tkinter as tk
 from tkinter import ttk
 
@@ -65,7 +65,7 @@ class popupInput(tk.Tk):
 		# Frame 2
 		self.frame2 = tk.Frame(self, background=windowcolor)
 		self.input = tk.StringVar()
-		self.inputfield = tk.Text(self.master, yscrollcommand=True, font=("Helvetica", 16),background="white")
+		self.inputfield = tk.Text(self.master, yscrollcommand=True, font=("Helvetica", 16), background="white")
 		self.inputfield.pack(fill=tk.BOTH, expand=True)
 
 		self.frame2.pack(fill=tk.BOTH, padx=5)
@@ -82,15 +82,16 @@ class popupInput(tk.Tk):
 		# Try to set window focus
 		try:
 			from Cocoa import NSRunningApplication, NSApplicationActivateIgnoringOtherApps
-		except:
-			print ("pip3 install pyobjc")
+		except ImportError as err:
+			print(err)
+			print("pip3 install pyobjc")
 			sys.exit()
 		app = NSRunningApplication.runningApplicationWithProcessIdentifier_(os.getpid())
 		app.activateWithOptions_(NSApplicationActivateIgnoringOtherApps)
 
 	def buttonOK(self):
 		self.exitcode = True
-		self.input = self.inputfield.get("1.0",tk.END)
+		self.input = self.inputfield.get("1.0", tk.END)
 		self.close()
 
 	def buttonCancel(self):

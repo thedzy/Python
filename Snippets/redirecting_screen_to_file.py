@@ -1,22 +1,32 @@
 #!/usr/bin/env python3
 
-import os,sys
+import os
+import sys
 import time
 
 
 def main():
-	# Enable logging and then print some text
+	"""
+	Enable logging and then print some text
+	:return: Void
+	"""
 	enable_logging("logs")
 	print("Stuff happened")
 
-
-# Get formatted date
 def get_date():
+	"""
+	Get formatted date
+	:return: (String) Formated date
+	"""
 	fmtdate = time.strftime('%Y.%m.%d.%H.%M.%S')
 	return fmtdate
 
-# Enable logging of all output
 def enable_logging(folder):
+	"""
+	Enable logging of all output
+	:param folder: (String) Path to log folder
+	:return: Void
+	"""
 	# Set the log path to the string passed (relative path)
 	dirname = os.path.dirname(__file__)
 	logpath = "/" + folder + "/"

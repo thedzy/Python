@@ -22,9 +22,11 @@ __status__      = "Developer"
 try:
 	from AppKit import *
 	from PyObjCTools import AppHelper
-except:
+except ImportError as err:
+	print(err)
 	print("You need to have the PyObjC frameworks installed")
 	print("easy_install -U pyobjc")
+
 
 class Notification(object):
 	"""
@@ -47,12 +49,12 @@ class Notification(object):
 		"""
 		super(Notification, self).__init__()
 		self.messageText = messageText
-		self.subtitle = kwargs.get('subtitle',"")
-		self.informativeText = kwargs.get('informativeText',"")
+		self.subtitle = kwargs.get('subtitle', "")
+		self.informativeText = kwargs.get('informativeText', "")
 
 		self.icon = kwargs.get('icon', None)
 		self.contentImage = kwargs.get('contentImage', None)
-		self.buttons = kwargs.get('buttons',['OK'])
+		self.buttons = kwargs.get('buttons', ['OK'])
 		self.response = kwargs.get('response', False)
 		self.responseText = kwargs.get('responseText', "")
 
@@ -75,16 +77,15 @@ class Notification(object):
 
 		# Set icon
 		try:
-			if not self.icon is None:
+			if self.icon is not None:
 				image = NSImage.alloc().initByReferencingFile_(self.icon)
 				notification.set_identityImage_(image)
 		except:
 			pass
 
-
 		# Set contentImage (right icon)
 		try:
-			if not self.contentImage is None:
+			if self.contentImage is not None:
 				image = NSImage.alloc().initByReferencingFile_(self.contentImage)
 				notification.setContentImage_(image)
 		except:
@@ -101,7 +102,6 @@ class Notification(object):
 				notification.setActionButtonTitle_(self.buttons[0])
 			if len(self.buttons) > 1:
 				notification.setOtherButtonTitle_(self.buttons[1])
-
 
 		# If more than 2 buttons are set, set hte options ans force the appearance
 		if len(self.buttons) > 2 and not self.response:
@@ -180,23 +180,4 @@ class Notification(object):
 		# Stop even loop if start with runConsoleEventLoop
 		AppHelper.stopEventLoop()
 		return True
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -19,7 +19,8 @@ __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
 
-import sys, os
+import os
+import sys
 import tkinter as tk
 from tkinter import ttk
 
@@ -83,8 +84,9 @@ class popupInput(tk.Tk):
 		# Try to set window focus
 		try:
 			from Cocoa import NSRunningApplication, NSApplicationActivateIgnoringOtherApps
-		except:
-			print ("pip3 install pyobjc")
+		except ImportError as err:
+			print(err)
+			print("pip3 install pyobjc")
 			sys.exit()
 		app = NSRunningApplication.runningApplicationWithProcessIdentifier_(os.getpid())
 		app.activateWithOptions_(NSApplicationActivateIgnoringOtherApps)

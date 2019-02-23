@@ -6,7 +6,7 @@ import subprocess
 
 
 def main():
-	# Use os.getlogin() in place of the username if you want to run a command as the current user while the script runs as root
+	# Use os.getlogin() in place of the username if you want to run a command as the current user
 	run_result = run_bash_as_user('whoami', "account")
 
 	if run_result[0] is not None:

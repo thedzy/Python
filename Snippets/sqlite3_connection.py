@@ -4,12 +4,12 @@
 import sqlite3
 import time
 
-database="/tmp/sqlite3.db"
+DATABASE = "/tmp/sqlite3.db"
+
 
 def main():
-
-	Fname = "Firstname"
-	Lname = "LastName"
+	first_name = "Firstname"
+	last_name = "LastName"
 
 	sqlcon, sqlcur = sql_connection()
 
@@ -20,12 +20,12 @@ def main():
 		print("Table exists")
 
 	# Sample write
-	sqlcur.execute("""INSERT INTO Contacts (Time, Fname, Lname) VALUES (%d,'%s','%s');""" % (get_time(),Fname,Lname))
+	sqlcur.execute("""INSERT INTO Contacts (Time, Fname, Lname) VALUES (%d,'%s','%s');""" % (get_time(), first_name, last_name))
 
 	# Sample read and print results
 	results = sqlcur.execute("""SELECT * from Contacts""")
 	print('| %15s | %15s | %15s |' % ("Time", "FirstName", "LastName"))
-	print( "-" * 55)
+	print("-" * 55)
 	for row in results:
 		print('| %15s | %15s | %15s |' % row)
 	print("-" * 55)
@@ -33,20 +33,31 @@ def main():
 	# Close connection
 	sql_diconnection(sqlcon, sqlcur)
 
-
 def get_time():
-	# Return epoch milliseconds
+	"""
+	Return epoch milliseconds
+	:return: (Int) Epoch
+	"""
 	epochmilli = int(round(time.time() * 1000))
 	return epochmilli
 
 def sql_connection():
-	sqlcon = sqlite3.connect(database)
+	"""
+	Create an SQL connection
+	:return: (Object) SQL Connection, (Object) SQL Cursors
+	"""
+	sqlcon = sqlite3.connect(DATABASE)
 	sqlcur = sqlcon.cursor()
 
 	return sqlcon, sqlcur
 
 def sql_diconnection(connection, cursor):
-	# Commit and close
+	"""
+	Commit and close connection
+	:param connection: (Object) SQL Connection
+	:param cursor: (Object) SQL Cursors
+	:return:
+	"""
 	connection.commit()
 	cursor.close()
 	connection.close()

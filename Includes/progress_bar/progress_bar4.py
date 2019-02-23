@@ -20,10 +20,10 @@ __maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
-import time
-import os, sys
+import os
 
-def progressbar(position, max=100, title="Loading", rgba=[0.0,0.0,0.0], rgbb=[0.0,1.0,0.0]):
+
+def progressbar(position, max=100, title="Loading", rgba=[0.0, 0.0, 0.0], rgbb=[0.0, 1.0, 0.0]):
     """
     Draw a progress bar to the width of the screen
 
@@ -43,12 +43,12 @@ def progressbar(position, max=100, title="Loading", rgba=[0.0,0.0,0.0], rgbb=[0.
     prog_empty = prog_width - prog_filled
 
     # Calculate colours
-    red   = abs((rgbb[0] -rgba[0]) * (position / (max + 1)) + rgba[0])
-    green = abs((rgbb[1] -rgba[1]) * (position / (max + 1)) + rgba[1])
-    blue  = abs((rgbb[2] -rgba[2]) * (position / (max + 1)) + rgba[2])
+    red = abs((rgbb[0] - rgba[0]) * (position / (max + 1)) + rgba[0])
+    green = abs((rgbb[1] - rgba[1]) * (position / (max + 1)) + rgba[1])
+    blue = abs((rgbb[2] - rgba[2]) * (position / (max + 1)) + rgba[2])
     colour = int(16 + (36 * red) + (6 * green) + blue)
     #print(str(red) + ", " + str(green) + ", " + str(blue))
     #print(str(colour))
 
     # Draw progress
-    print(" [\033[38;5;%dm%s%s\033[38;5;15m] %3d%% %s" % (colour, "▉" * prog_filled, " " * prog_empty, position/max*100, title), end="\r", flush = True)
+    print(" [\033[38;5;%dm%s%s\033[38;5;15m] %3d%% %s" % (colour, "▉" * prog_filled, " " * prog_empty, position/max*100, title), end="\r", flush=True)

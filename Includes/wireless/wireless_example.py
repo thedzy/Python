@@ -30,8 +30,8 @@ def main():
 
 def print_info(title='', status=''):
 	"""
-	Print rmessage and status
-	:param msg: (string) Message Title
+	Print message and status
+	:param title: (string) Message Title
 	:param status: (any) Message Status
 	"""
 	print('%-20s: %s' % (title, str(status)))

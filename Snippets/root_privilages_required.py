@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import os, sys
+import os
+import sys
 
 if os.geteuid() == 0:
     print("Running as root!")

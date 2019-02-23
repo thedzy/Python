@@ -2,6 +2,7 @@
 
 from progress_bar6 import *
 
+
 def main():
 	progressLength = 100
 
@@ -17,7 +18,7 @@ def main():
 			# Incerement by 1
 			app.setIncrement(1)
 			app.setLabel("Loading... {0}".format(progressCount))
-		app.addOutput(str(progressCount) + "\n -- " )
+		app.addOutput(str(progressCount) + "\n -- ")
 
 
 if __name__ == "__main__":

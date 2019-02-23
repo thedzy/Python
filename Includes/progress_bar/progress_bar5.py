@@ -19,10 +19,8 @@ __maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
-
 import tkinter as tk
 from tkinter import ttk
-import time
 
 
 class ProgressBar(tk.Tk):
@@ -87,7 +85,7 @@ class ProgressBar(tk.Tk):
 	def setPosition(self, position):
 		"""
 		Set Bar position value
-		:param max: Integer
+		:param position: Integer
 		"""
 		self.progress["value"] = position
 
@@ -101,9 +99,9 @@ class ProgressBar(tk.Tk):
 		return self.progress["value"]
 
 	def setIncrement(self, increment):
-		''' Increment the bar by a value
+		""" Increment the bar by a value
 		:param increment: integer
-		'''
+		"""
 		self.progress.step(increment)
 
 		self.__refresh()

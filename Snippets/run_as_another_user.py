@@ -3,6 +3,7 @@
 import os
 import pwd
 
+
 def main():
 	# Change user context to 'account'
 	if change_user_context('account'):
@@ -15,7 +16,6 @@ def main():
 		print("Now running as user %d" % os.getuid())
 	else:
 		print("Still unning as user %d" % os.getuid())
-
 
 def change_user_context(user_name):
 	"""

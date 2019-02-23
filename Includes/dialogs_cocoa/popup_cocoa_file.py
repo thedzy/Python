@@ -9,7 +9,6 @@ Platform: MacOS
 Description:
 Creates a GUI file open/save dialog using the PyObjC framework
 Returns filename(s)
-
 """
 __author__      = "thedzy"
 __copyright__   = "Copyright 2018, thedzy"
@@ -22,9 +21,11 @@ __status__      = "Developer"
 import os
 try:
 	from AppKit import *
-except:
+except ImportError as err:
+	print(err)
 	print("You need to have the PyObjC frameworks installed")
 	print("easy_install -U pyobjc")
+
 
 class FileDialog(object):
 

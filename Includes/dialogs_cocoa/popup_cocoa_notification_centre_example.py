@@ -2,6 +2,7 @@
 
 from popup_cocoa_notification_centre import *
 
+
 def main():
 	# Get input
 	notification_msg = Notification("Name", subtitle="First Name", informativeText='Enter your given name', response=True, responseText="Default")
@@ -30,7 +31,6 @@ def main():
 	else:
 		print("User Cancelled")
 
-
 	# Multiple options
 	buttons = ['Yes', 'No', 'option1', 'option2', 'option3']
 	notification_msg = Notification("Select Background", subtitle="3 choices", informativeText='Please choose', contentImage='/System/Library/CoreServices/DefaultBackground.jpg', buttons=buttons)
@@ -46,6 +46,7 @@ def main():
 		print("Button pressed is: " + str(responseCode))
 	else:
 		print("User Cancelled")
+
 
 if __name__ == "__main__":
 	main()

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import mysql.connector #pip3 install mysql-connector==2.1.4
+# pip3 install mysql-connector==2.1.4
+import mysql.connector
 from mysql.connector import (connection)
 from mysql.connector import errorcode
 
@@ -10,11 +11,11 @@ username = 'databaseuser'
 password = 'databasepass'
 database = 'example'
 
-print ("Using mysql.connector")
+print("Using mysql.connector")
 
 try:
 	# Initilaise database
-	mysqlconn = mysql.connector.connect( host=hostname, user=username, passwd=password, database=database )
+	mysqlconn = mysql.connector.connect(host=hostname, user=username, passwd=password, database=database)
 except mysql.connector.Error as err:
 	if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
 		print("Something is wrong with your user name or password")
@@ -28,13 +29,13 @@ else:
 	cursor = mysqlconn.cursor()
 
 	# Query
-	query = ("SELECT COUNT(*) from table1")
+	query = "SELECT COUNT(*) from table1"
 	cursor.execute(query)
 
-	count=cursor.fetchone()[0]
+	count = cursor.fetchone()[0]
 
 	# Close connections
 	cursor.close()
 	mysqlconn.close()
 
-	print (count)
+	print(count)

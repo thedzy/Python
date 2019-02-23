@@ -9,18 +9,20 @@ from simple_multitasking import *
 start_time = time.time()
 total_time = 0
 threads = []
-loops = random.randrange(5,25)
+loops = random.randrange(5, 25)
 
-def randomSleep(index, *args, **kwargs):
-	timer_sleep = random.randrange(0,25)
+
+def random_sleep(index, *args, **kwargs):
+	timer_sleep = random.randrange(0, 25)
 	time.sleep(timer_sleep)
 	return 'Given: {0:2d}, {1:3d}, {2:4d}.  Slept for {3:2d}'.format(index, args[0], kwargs.get('number', None), timer_sleep)
+
 
 print("Generating 5-25 threads that will take 0-25 seconds to complete")
 
 # Create process threads
 for x in range(loops):
-	threads.append(ThreadFunction(randomSleep, x, x**2, number=x**3))
+	threads.append(ThreadFunction(random_sleep, x, x**2, number=x**3))
 	threads[len(threads) - 1].start()
 
 # Process in order or by first completed

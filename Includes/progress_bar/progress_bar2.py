@@ -20,8 +20,10 @@ __maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
+import os
+import sys
 import time
-import os, sys
+
 title = "Loading"
 prog_max = 33
 
@@ -32,10 +34,12 @@ prog_width = (prog_max * int(prog_width/prog_max))
 # setup toolbar
 sys.stdout.write("[%s] %s" % (" " * prog_width, title))
 sys.stdout.flush()
-sys.stdout.write("\b" * (prog_width + len(title) + 2)) # return to start of line, after '['
+# return to start of line, after '['
+sys.stdout.write("\b" * (prog_width + len(title) + 2))
 
 for i in xrange(prog_max):
-    time.sleep(0.05) # do real work here
+    # do real work here
+    time.sleep(0.05)
     # update the bar
     sys.stdout.write("%s" % ("▉" * int(prog_width/prog_max)))
     sys.stdout.flush()

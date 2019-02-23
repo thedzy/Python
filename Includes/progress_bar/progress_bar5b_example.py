@@ -2,6 +2,7 @@
 
 from progress_bar5b import *
 
+
 def main():
 	progressLength = 100
 
