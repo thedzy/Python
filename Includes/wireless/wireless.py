@@ -19,7 +19,7 @@ __email__ = "thedzy@hotmail.com"
 __status__ = "Developer"
 
 
-class Wifi():
+class Wifi:
 
     def __init__(self):
         import os
@@ -31,7 +31,9 @@ class Wifi():
     # Get commands
     # print("\n".join(dir(CWInterface)))
 
-    # FINDS
+    """
+    FINDS
+    """
     def find_Networks_with_hidden(self, ssid=None):
         """
         Find a network and return the network object if it exists
@@ -76,6 +78,13 @@ class Wifi():
         :return: (Array) (CWNetwork). Returns nil in the case of an error.
         """
         return CWInterface.interface().cachedScanResults()
+
+    def find_clearScanCache(self):
+        """
+		The networks currently in the scan cache for the WLAN interface.
+		:return: (Array) (CWNetwork). Returns nil in the case of an error.
+		"""
+        return CWInterface.interface().clearScanCache()
 
     # GETS
     def get_activePHYMode(self):
@@ -166,6 +175,13 @@ class Wifi():
         """
         return CWInterface.interface().interfaceMode()
 
+    def get_interfaceObject(self):
+        """
+        Retruns the interface object
+        :return: (CWInterface) Interface
+        """
+        return CWInterface
+
     def get_interfaceState(self):
         """
         Dynamically queries the interface state
@@ -179,9 +195,17 @@ class Wifi():
         return CWInterface.interface().interfaceMode()
 
     def get_lastNetworkJoined(self):
+        """
+        Returns the last network joined
+        :return: (CWNetwork) Network information
+        """
         return CWInterface.interface().lastNetworkJoined()
 
     def get_lastPreferredNetworkJoined(self):
+        """
+        Returns the last network joined
+        :return: (CWNetworkProfile) Network profile
+        """
         return CWInterface.interface().lastPreferredNetworkJoined()
 
     def get_lastTetherDeviceJoined(self):
@@ -349,7 +373,9 @@ class Wifi():
     def get_eapolClient_eapolClientSupplicantState(self):
         return CWInterface.interface().eapolClient().eapolClientSupplicantState()
 
-    # SETS
+    """
+    SETS
+    """
     def set_power(self, power=True):
         """
         Sets power state for the current interface . Returns current power state.
@@ -359,7 +385,9 @@ class Wifi():
         iface.set_Power_error_(power, None)
         return CWInterface.interface().powerOn()
 
-    # NETWORK ACCOCIATIONS
+    """
+    NETWORK ACCOCIATIONS
+    """
     def disassociate(self):
         """
         This method has no effect if the interface is not associated to a network. This operation may require an
