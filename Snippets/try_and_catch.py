@@ -6,7 +6,7 @@ try:
 except:
 	print("Performing error correction\n")
 finally:
-	print("Do this regardless"
+	print("Do this regardless")
 
 try:
 	# Will succeed
@@ -14,4 +14,4 @@ try:
 except:
 	print("Performing error correction\n")
 finally:
-	print("Do this regardless"
+	print("Do this regardless")
