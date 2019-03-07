@@ -1,6 +1,8 @@
 # Snippets
 Examples of functionality that can be embedded or used in other scripts
 
+## accessing_regio.py
+Read and find data in the ioreg (I/O Kit registry)
 ## arguments_named.py
 Getting names arguments supplied after the command/file (ex. --file)
 ## arguments_positional.py
