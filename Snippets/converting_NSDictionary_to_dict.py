@@ -5,6 +5,8 @@ from SystemConfiguration import *
 from Foundation import __NSCFDictionary
 from Foundation import __NSCFArray
 
+from PyObjCTools import Conversion
+
 def convert_to_dict(old_dict, new_dict):
     if isinstance(old_dict, __NSCFDictionary):
         try:
@@ -45,9 +47,16 @@ print(network)
 print("=" * 40)
 
 
-print('After')
+print('After with function')
 print("=" * 40)
 new_dict = {}
 convert_to_dict(network, new_dict)
 print(json.dumps(new_dict, indent=4))
+print("=" * 40)
+
+
+
+print('After with PyObjCTools')
+print("=" * 40)
+print(json.dumps(Conversion.pythonCollectionFromPropertyList(network), indent=4))
 print("=" * 40)
