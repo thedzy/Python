@@ -13,6 +13,8 @@ Convert an NSDictionary to a python dictionary
 Embedding an AppleScript into a python script
 ## [embedding_shell.py](https://github.com/thedzy/Python/blob/master/Snippets/embedding_shell.py)
 Embedding (a) shell line(s) into a python script
+## [get_file_date.py](https://github.com/thedzy/Python/blob/master/Snippets/get_file_date.py)
+Get the date of a file
 ## [get_file_info.py](https://github.com/thedzy/Python/blob/master/Snippets/get_file_info.py)
 Get the mode, dates, and extended innfo of a file
 ## [get_user_input.py](https://github.com/thedzy/Python/blob/master/Snippets/get_user_input.py)
