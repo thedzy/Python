@@ -19,6 +19,8 @@ Get the mode, dates, and extended innfo of a file
 Using read to get input from the user
 ## horitzontal_rule.py
 Create a HR (Horizontal Rule)
+## json_pretty_print.py
+How to pretty print a json file
 ## multithreading.py
 A simple multithreaded script
 ## mysql_connection.py
