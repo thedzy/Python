@@ -9,6 +9,8 @@ Getting names arguments supplied after the command/file (ex. --file)
 Getting positional arguments supplied after the command/file
 ## converting_NSDictionary_to_dict.py
 Convert an NSDictionary to a python dictionary
+## embedding_applescript.py
+Embedding an AppleScript into a python script
 ## embedding_shell.py
 Embedding (a) shell line(s) into a python script
 ## get_file_info.py
