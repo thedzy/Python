@@ -43,3 +43,5 @@ Run bash commands under another user (requires root)
 Simple sqlite3 database connecion, insert and query
 ## try_and_catch.py
 Simple try and catch statement for rolling back on a statement
+## turn_on_autoproxy.py
+Turn on autoproxy discovery for all interfaces
