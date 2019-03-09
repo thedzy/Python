@@ -1,6 +1,8 @@
 # Includes
 Scripts that you can import into other scripts to add functionality
 
+*Examples provided for each*
+
 ## [apple_events](https://github.com/thedzy/Python/tree/master/Includes/apple_events)
 Includes an example of sending an apple event to the loginwindow or an application
 
