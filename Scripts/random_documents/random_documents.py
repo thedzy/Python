@@ -20,14 +20,14 @@ __maintainer__  = "thedzy"
 __email__       = "thedzy@hotmail.com"
 __status__      = "Developer"
 
-
+import os
+import sys
 from random import *
-import sys, os
+
 
 def main():
-
     if len(sys.argv) == 1:
-        print (document())
+        print(document())
 
     # For file arguments
     for arg in range(1, len(sys.argv)):
@@ -40,24 +40,29 @@ def main():
             if extension != "txt":
                 filename += ".txt"
 
-            print ("Writeing out to: " + filename)
+            print("Writeing out to: " + filename)
             file = open(filename, "w")
         except OSError as error:
-            print ("OS error: {0}".format(error))
+            print("OS error: {0}".format(error))
             sys.exit()
 
         file.write(document())
         file.close()
 
-# Create a pseudo english word
-def word(capital=False):
-    fletters = [ "b", "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "gw", "ph", "pl", "pr", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr", "sch", "scr", "shr", "sph", "spl", "spr", "squ", "str", "thr" ]
-    cletters = [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "z", "bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "gh", "gn", "ph", "pl", "pr", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr", "sch", "scr", "shr", "sph", "spl", "spr", "squ", "str", "thr" ]
-    vletters = [ "a", "e", "i", "o", "u", "ai", "au", "ay", "ea", "ee", "ei", "eu", "ey", "ie", "oi", "oo", "ou", "oy", "eau", "y" ]
-    yletters = [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "ch", "ph", "sh", "sk", "sp", "st", "th" ]
-    zletters = [ "a", "e", "i", "o", "u", "ai", "au", "ay", "ea", "ee", "eu", "ey", "ie", "oi", "oo", "ou", "oy", "eau", "y" ]
 
-    wordlen = randint(0,5)
+def word(capital=False):
+    """
+    Create a pseudo english word
+    :param capital: (Bool) Use captial letter
+    :return: (String) word
+    """
+    fletters = ["b", "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "gw", "ph", "pl", "pr", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr", "sch", "scr", "shr", "sph", "spl", "spr", "squ", "str", "thr"]
+    cletters = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "z", "bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "gh", "gn", "ph", "pl", "pr", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr", "sch", "scr", "shr", "sph", "spl", "spr", "squ", "str", "thr"]
+    vletters = ["a", "e", "i", "o", "u", "ai", "au", "ay", "ea", "ee", "ei", "eu", "ey", "ie", "oi", "oo", "ou", "oy", "eau", "y"]
+    yletters = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "ch", "ph", "sh", "sk", "sp", "st", "th"]
+    zletters = ["a", "e", "i", "o", "u", "ai", "au", "ay", "ea", "ee", "eu", "ey", "ie", "oi", "oo", "ou", "oy", "eau", "y"]
+
+    wordlen = randint(0, 5)
 
     if wordlen == 0:
         word = sample(vletters, 1)[0]
@@ -65,19 +70,14 @@ def word(capital=False):
         word = sample(fletters, 1)[0]
 
         for i in range(wordlen):
-            #print(str(i))
             if i % 2 == 0:
-                #word += " "
                 word += sample(vletters, 1)[0]
             else:
-                #word += " "
                 word += sample(cletters, 1)[0]
 
         if i % 2 == 0:
-            #word += " "
             word += sample(yletters, 1)[0]
         else:
-            #word += " "
             word += sample(zletters, 1)[0]
 
     if capital:
@@ -85,13 +85,18 @@ def word(capital=False):
 
     return word
 
-# Create a pseudo english sentance
+
 def sentance(words=0):
-    punctuation = [ ".", ".", ".", ".", ".", ".", "!", "?" ]
+    """
+    Create a pseudo english sentance
+    :param words: (int) Number of words
+    :return: (string) Sentance
+    """
+    punctuation = [".", ".", ".", ".", ".", ".", "!", "?"]
     quoted = False
 
     if words == 0:
-        words = randint(2,20)
+        words = randint(2, 20)
 
     sentance = ""
     for i in range(words):
@@ -99,10 +104,10 @@ def sentance(words=0):
             sentance += word(True)
         else:
             # Chance of punctuation
-            if i != words and randint(0,100) == 0:
+            if i != words and randint(0, 100) == 0:
                 sentance += "\'s"
 
-            if randint(0,10) == 0:
+            if randint(0, 10) == 0:
                 sentance += ","
             elif randint(0, 100) == 0:
                     sentance += ";"
@@ -130,11 +135,15 @@ def sentance(words=0):
     if quoted:
         sentance += '"'
 
-    return (sentance + sample(punctuation, 1)[0] + " ")
+    return sentance + sample(punctuation, 1)[0] + " "
 
-# Create a pseudo english paragraph
+
 def paragraph(sentances=0):
-
+    """
+    Create a pseudo english paragraph
+    :param sentances: (Int) Number of sentances
+    :return: (String) Paragraph
+    """
     if sentances == 0:
         sentances = randint(5, 20)
 
@@ -145,11 +154,15 @@ def paragraph(sentances=0):
         else:
             paragraph += sentance()
 
-    return (paragraph + "\n\n")
+    return paragraph + "\n\n"
 
-# Create a pseudo english document
+
 def document(paragraphs=0):
-
+    """
+    Create a pseudo english document
+    :param paragraphs: (Int) Number of paragraphs
+    :return: (String) Document
+    """
     if paragraphs == 0:
         paragraphs = randint(5, 20)
 
@@ -160,7 +173,8 @@ def document(paragraphs=0):
         else:
             document += paragraph()
 
-    return (document)
+    return document
+
 
 if __name__ == "__main__":
     main()
