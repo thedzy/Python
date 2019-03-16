@@ -7,6 +7,8 @@ Read and find data in the ioreg (I/O Kit registry)
 Getting names arguments supplied after the command/file (ex. --file)
 ## [arguments_positional.py](https://github.com/thedzy/Python/blob/master/Snippets/arguments_positional.py)
 Getting positional arguments supplied after the command/file
+## [arguments_stdin.py](https://github.com/thedzy/Python/blob/master/Snippets/arguments_stdin.py)
+Getting arguments supplied through stdin
 ## [converting_NSDictionary_to_dict.py](https://github.com/thedzy/Python/blob/master/Snippets/converting_NSDictionary_to_dict.py)
 Convert an NSDictionary to a python dictionary
 ## [embedding_applescript.py](https://github.com/thedzy/Python/blob/master/Snippets/embedding_applescript.py)
