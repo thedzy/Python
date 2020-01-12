@@ -32,7 +32,7 @@ Simple mySQL database connecion and query
 ## [open_url.py](https://github.com/thedzy/Python/blob/master/Snippets/open_url.py)
 Open a url in an external browser
 ## [paths_and_names.py](https://github.com/thedzy/Python/blob/master/Snippets/paths_and_names.py)
-Extracting paths, filesnames and relative paths
+Extracting paths, filenames and relative paths
 ## [print_system_varaibles.py](https://github.com/thedzy/Python/blob/master/Snippets/print_system_varaibles.py)
 Print out all variables that the script can access.  Created by the system or user
 ## [randoms.py](https://github.com/thedzy/Python/blob/master/Snippets/randoms.py)

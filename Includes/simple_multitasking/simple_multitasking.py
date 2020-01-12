@@ -8,13 +8,13 @@ Description:
 Class to handle threading, getting its results and tracking if its been handled
 https://docs.python.org/3.6/library/threading.html
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "1.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '1.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 import time
 from threading import Thread

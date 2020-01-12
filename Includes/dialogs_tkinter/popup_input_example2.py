@@ -5,13 +5,13 @@ from popup_input import *
 
 
 def main():
-	sharedsecret, exitcode = popupInput().getInput("Passphrase", "What is the passphrase?", True)
+	sharedsecret, exitcode = popupInput().getInput('Passphrase', 'What is the passphrase?', True)
 
 	if exitcode:
-		print("Passphrase: %s\nExit Code: %d\n" % (sharedsecret, exitcode))
+		print('Passphrase: %s\nExit Code: %d\n' % (sharedsecret, exitcode))
 	else:
-		print("Exited")
+		print('Exited')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()

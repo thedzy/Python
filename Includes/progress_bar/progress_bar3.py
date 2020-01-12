@@ -13,18 +13,18 @@ Customisable colour, title and header
 Shows percentage.
 
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "3.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '3.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 import os
 
 
-def progressbar(position, max=100, title="Loading", rgb=[1.0, 1.0, 1.0]):
+def progressbar(position, max=100, title='Loading', rgb=[1.0, 1.0, 1.0]):
     """
     Draw a progress bar to the width of the screen
 
@@ -43,4 +43,4 @@ def progressbar(position, max=100, title="Loading", rgb=[1.0, 1.0, 1.0]):
     prog_filled = int(prog_unit * position)
     prog_empty = prog_width - prog_filled
 
-    print(" [\033[38;5;%dm%s%s\033[38;5;15m] %3d%%%s" % (colour, "▉" * prog_filled, " " * prog_empty, position/max*100, title), end="\r", flush=True)
+    print(' [\033[38;5;%dm%s%s\033[38;5;15m] %3d%%%s' % (colour, '▉' * prog_filled, ' ' * prog_empty, position/max*100, title), end='\r', flush=True)

@@ -10,13 +10,13 @@ Description:
 Creates a script that will upack a file emedded into it
 You can ad on to the script to perform different operations
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "1.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '1.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 import optparse
 import os
@@ -68,11 +68,11 @@ def main(script, infile, outfile):
 
     # Footer of the script
     footer = '\n'.join([
-        '"""\n',
-        'with open("{0}", "w") as tmp_file:'.format(tmp_path),
+        """'\n',
+        'with open('{0}', 'w') as tmp_file:'.format(tmp_path),
         '   tmp_file.write(data)',
         '   tmp_file.close()',
-        'uu.decode("{0}")'.format(tmp_path),
+        'uu.decode('{0}')'.format(tmp_path),
         'exit()\n',
         ])
 

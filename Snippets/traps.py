@@ -5,8 +5,8 @@ import atexit
 
 @atexit.register
 def trap_exit():
-	print("Do necessary clean up")
+	print('Do necessary clean up')
 
 
-print("Do stuff")
+print('Do stuff')
 exit()

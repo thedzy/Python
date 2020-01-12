@@ -11,13 +11,13 @@ Creates a GUI progress bar
 Customisable colour, title and header
 
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "5.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '5.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 import tkinter as tk
 from tkinter import ttk
@@ -42,7 +42,7 @@ class ProgressBar(tk.Tk):
 		self.active = True
 
 		# Destroy the window is the app is closed
-		self.protocol("WM_DELETE_WINDOW", self.close)
+		self.protocol('WM_DELETE_WINDOW', self.close)
 
 	def createWindow(self):
 		# Set min/max sizing for resizing
@@ -55,15 +55,15 @@ class ProgressBar(tk.Tk):
 		# Set progress bar style
 		style = ttk.Style()
 		style.theme_use('default')
-		style.configure("black.Horizontal.TProgressbar", background='red')
+		style.configure('black.Horizontal.TProgressbar', background='red')
 
 		# Define Lable
-		self.labelValue = tk.StringVar(value="Loading...")
-		self.label = ttk.Label(self.master, text="xxxxxxxxxxx", justify="left", anchor="w", textvariable=self.labelValue, font=("Helvetica", 16), background=windowcolor)
+		self.labelValue = tk.StringVar(value='Loading...')
+		self.label = ttk.Label(self.master, text='xxxxxxxxxxx', justify='left', anchor='w', textvariable=self.labelValue, font=('Helvetica', 16), background=windowcolor)
 		self.label.pack(fill=tk.BOTH, expand=True, padx=5)
 
 		# Define Progress bar
-		self.progress = ttk.Progressbar(self, orient="horizontal", length=300, mode="determinate")
+		self.progress = ttk.Progressbar(self, orient='horizontal', length=300, mode='determinate')
 		self.progress.pack(fill=tk.BOTH, expand=True)
 
 		# Initialise positions
@@ -87,7 +87,7 @@ class ProgressBar(tk.Tk):
 		Set Bar position value
 		:param position: Integer
 		"""
-		self.progress["value"] = position
+		self.progress['value'] = position
 
 		self.__refresh()
 
@@ -96,7 +96,7 @@ class ProgressBar(tk.Tk):
 		Get Position
 		:return: Interger
 		"""
-		return self.progress["value"]
+		return self.progress['value']
 
 	def setIncrement(self, increment):
 		""" Increment the bar by a value
@@ -111,7 +111,7 @@ class ProgressBar(tk.Tk):
 		Set Bar Maximum value
 		:param max: Integer
 		"""
-		self.progress["maximum"] = max
+		self.progress['maximum'] = max
 
 		self.__refresh()
 
@@ -123,7 +123,7 @@ class ProgressBar(tk.Tk):
 		"""
 		style = ttk.Style()
 		style.theme_use('default')
-		style.configure("Horizontal.TProgressbar", background=barColour, troughcolor=backColour)
+		style.configure('Horizontal.TProgressbar', background=barColour, troughcolor=backColour)
 
 		self.__refresh()
 
@@ -135,9 +135,9 @@ class ProgressBar(tk.Tk):
 		style = ttk.Style()
 		style.theme_use('default')
 		if bool:
-			style.configure("Horizontal.TProgressbar", mode="determinate")
+			style.configure('Horizontal.TProgressbar', mode='determinate')
 		else:
-			style.configure("Horizontal.TProgressbar", mode="indeterminate")
+			style.configure('Horizontal.TProgressbar', mode='indeterminate')
 
 		self.__refresh()
 

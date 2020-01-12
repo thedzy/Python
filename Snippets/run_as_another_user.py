@@ -7,15 +7,15 @@ import pwd
 def main():
 	# Change user context to 'account'
 	if change_user_context('account'):
-		print("Now running as user %d" % os.getuid())
+		print('Now running as user %d' % os.getuid())
 	else:
-		print("Still unning as user %d" % os.getuid())
+		print('Still unning as user %d' % os.getuid())
 
 	# You cannot change back, now you don't have elevated privilages to do so
 	if change_user_context('root'):
-		print("Now running as user %d" % os.getuid())
+		print('Now running as user %d' % os.getuid())
 	else:
-		print("Still unning as user %d" % os.getuid())
+		print('Still unning as user %d' % os.getuid())
 
 def change_user_context(user_name):
 	"""
@@ -32,11 +32,11 @@ def change_user_context(user_name):
 			os.setuid(pwnam.pw_uid)
 			return True
 		else:
-			print("Cannot change to %d Only root can change uid" % pw_uid)
+			print('Cannot change to %d Only root can change uid' % pw_uid)
 			return False
 	except:
 		return False
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()

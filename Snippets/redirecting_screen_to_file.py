@@ -10,8 +10,8 @@ def main():
 	Enable logging and then print some text
 	:return: Void
 	"""
-	enable_logging("logs")
-	print("Stuff happened")
+	enable_logging('logs')
+	print('Stuff happened')
 
 def get_date():
 	"""
@@ -29,17 +29,17 @@ def enable_logging(folder):
 	"""
 	# Set the log path to the string passed (relative path)
 	dirname = os.path.dirname(__file__)
-	logpath = "/" + folder + "/"
-	print("Logging to ", dirname + logpath)
+	logpath = '/' + folder + '/'
+	print('Logging to ', dirname + logpath)
 
 	if not os.path.exists(dirname + logpath):
 		os.makedirs(dirname + logpath)
 
-	filename = os.path.join(dirname + logpath + str(get_date()) + ".txt")
-	sys.stdout = open(filename, "w+")
+	filename = os.path.join(dirname + logpath + str(get_date()) + '.txt')
+	sys.stdout = open(filename, 'w+')
 
 	print(time.asctime())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()

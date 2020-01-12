@@ -18,7 +18,7 @@ def random_sleep(index, *args, **kwargs):
 	return 'Given: {0:2d}, {1:3d}, {2:4d}.  Slept for {3:2d}'.format(index, args[0], kwargs.get('number', None), timer_sleep)
 
 
-print("Generating 5-25 threads that will take 0-25 seconds to complete")
+print('Generating 5-25 threads that will take 0-25 seconds to complete')
 
 # Create process threads
 for x in range(loops):
@@ -29,12 +29,12 @@ for x in range(loops):
 # Assuming no post processing is required, each takes the same time
 process_in_order = False
 if process_in_order:
-	print("Processing in order, notice the given values increment")
+	print('Processing in order, notice the given values increment')
 	for thread in threads:
 		print(thread.getValue())
 		total_time += thread.getTime()
 else:
-	print("Processing by first complete, notice the sleep values increment")
+	print('Processing by first complete, notice the sleep values increment')
 	unhandled_threads = [t for t in threads if not t.isHandled()]
 	while len(unhandled_threads) != 0:
 		# Loop through processed threads
@@ -43,6 +43,6 @@ else:
 			total_time += unactive_thread.getTime()
 		unhandled_threads = [t for t in threads if not t.isHandled()]
 
-print("Total processing time: {0:3d}s".format(total_time))
-print("Actual time :          {0:3.0f}s".format(time.time() - start_time))
+print('Total processing time: {0:3d}s'.format(total_time))
+print('Actual time :          {0:3.0f}s'.format(time.time() - start_time))
 exit()

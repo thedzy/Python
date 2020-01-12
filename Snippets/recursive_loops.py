@@ -12,7 +12,7 @@ sys.setrecursionlimit(1000)
 
 def loop(number):
 	"""
-	Simple recusrive loop, breaking with an "if"
+	Simple recusrive loop, breaking with an 'if'
 	:param number: (Int) loops
 	:return:
 	"""
@@ -50,13 +50,13 @@ def dir_struct(path, subpath, index=0):
 	"""
 	items = os.listdir(path + subpath)
 	for item in items:
-		if os.path.isfile("{0}/{1}/{2}".format(path, subpath, item)):
-			print("\t" * (index + 1) + item)
+		if os.path.isfile('{0}/{1}/{2}'.format(path, subpath, item)):
+			print('\t' * (index + 1) + item)
 
 	for item in items:
-		if os.path.isdir("{0}/{1}/{2}/".format(path, subpath, item)):
-			print("\t" * index + item + "/")
-			dir_struct("{0}{1}/".format(path, subpath), item, index+1)
+		if os.path.isdir('{0}/{1}/{2}/'.format(path, subpath, item)):
+			print('\t' * index + item + '/')
+			dir_struct('{0}{1}/'.format(path, subpath), item, index+1)
 
 
 print(os.path.expanduser('~/'), 'Downloads')

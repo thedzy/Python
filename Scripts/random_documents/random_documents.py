@@ -7,18 +7,18 @@ Date:	2018-09-30
 Platform: MacOS
 
 Description:
-Creates a radom text (English language like) document.
+Creates a random text (English language like) document.
 With no parameters, it outputs to screen
 With a file specified, it will output to file
 
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "1.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '1.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 import os
 import sys
@@ -37,13 +37,13 @@ def main():
 
             # Check for txt extension
             extension = os.path.splitext(filename)[1][1:]
-            if extension != "txt":
-                filename += ".txt"
+            if extension != 'txt':
+                filename += '.txt'
 
-            print("Writeing out to: " + filename)
-            file = open(filename, "w")
+            print('Writeing out to: ' + filename)
+            file = open(filename, 'w')
         except OSError as error:
-            print("OS error: {0}".format(error))
+            print('OS error: {0}'.format(error))
             sys.exit()
 
         file.write(document())
@@ -56,11 +56,11 @@ def word(capital=False):
     :param capital: (Bool) Use captial letter
     :return: (String) word
     """
-    fletters = ["b", "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "gw", "ph", "pl", "pr", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr", "sch", "scr", "shr", "sph", "spl", "spr", "squ", "str", "thr"]
-    cletters = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "z", "bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "gh", "gn", "ph", "pl", "pr", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr", "sch", "scr", "shr", "sph", "spl", "spr", "squ", "str", "thr"]
-    vletters = ["a", "e", "i", "o", "u", "ai", "au", "ay", "ea", "ee", "ei", "eu", "ey", "ie", "oi", "oo", "ou", "oy", "eau", "y"]
-    yletters = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "ch", "ph", "sh", "sk", "sp", "st", "th"]
-    zletters = ["a", "e", "i", "o", "u", "ai", "au", "ay", "ea", "ee", "eu", "ey", "ie", "oi", "oo", "ou", "oy", "eau", "y"]
+    fletters = ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'qu', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'bl', 'br', 'ch', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'gw', 'ph', 'pl', 'pr', 'sc', 'sh', 'sk', 'sl', 'sm', 'sn', 'sp', 'st', 'sw', 'th', 'tr', 'tw', 'wh', 'wr', 'sch', 'scr', 'shr', 'sph', 'spl', 'spr', 'squ', 'str', 'thr']
+    cletters = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'qu', 'r', 's', 't', 'v', 'w', 'x', 'z', 'bl', 'br', 'ch', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'gh', 'gn', 'ph', 'pl', 'pr', 'sc', 'sh', 'sk', 'sl', 'sm', 'sn', 'sp', 'st', 'sw', 'th', 'tr', 'tw', 'wh', 'wr', 'sch', 'scr', 'shr', 'sph', 'spl', 'spr', 'squ', 'str', 'thr']
+    vletters = ['a', 'e', 'i', 'o', 'u', 'ai', 'au', 'ay', 'ea', 'ee', 'ei', 'eu', 'ey', 'ie', 'oi', 'oo', 'ou', 'oy', 'eau', 'y']
+    yletters = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'qu', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'ch', 'ph', 'sh', 'sk', 'sp', 'st', 'th']
+    zletters = ['a', 'e', 'i', 'o', 'u', 'ai', 'au', 'ay', 'ea', 'ee', 'eu', 'ey', 'ie', 'oi', 'oo', 'ou', 'oy', 'eau', 'y']
 
     wordlen = randint(0, 5)
 
@@ -92,50 +92,50 @@ def sentance(words=0):
     :param words: (int) Number of words
     :return: (string) Sentance
     """
-    punctuation = [".", ".", ".", ".", ".", ".", "!", "?"]
+    punctuation = ['.', '.', '.', '.', '.', '.', '!', '?']
     quoted = False
 
     if words == 0:
         words = randint(2, 20)
 
-    sentance = ""
+    sentance = ''
     for i in range(words):
         if i == 0:
             sentance += word(True)
         else:
             # Chance of punctuation
             if i != words and randint(0, 100) == 0:
-                sentance += "\'s"
+                sentance += '\'s'
 
             if randint(0, 10) == 0:
-                sentance += ","
+                sentance += ','
             elif randint(0, 100) == 0:
-                    sentance += ";"
+                    sentance += ';'
             elif randint(0, 200) == 0:
-                    sentance += ":"
+                    sentance += ':'
 
             # Space words or Hyphenate
             if randint(0, 200) == 0:
-                sentance += "-"
+                sentance += '-'
             else:
-                sentance += " "
+                sentance += ' '
 
             # Chance of quote
             if randint(0, 100) == 0:
                 quoted = True
-                sentance += '"'
+                sentance += """
             sentance += word()
 
             # Close quotes out within x words
             if quoted and randint(0, 8) == 0:
                 quoted = False
-                sentance += '"'
+                sentance += """
 
     # Make sure quotes end
     if quoted:
-        sentance += '"'
+        sentance += """
 
-    return sentance + sample(punctuation, 1)[0] + " "
+    return sentance + sample(punctuation, 1)[0] + ' '
 
 
 def paragraph(sentances=0):
@@ -147,14 +147,14 @@ def paragraph(sentances=0):
     if sentances == 0:
         sentances = randint(5, 20)
 
-    paragraph = ""
+    paragraph = ''
     for i in range(sentances):
         if i == 0:
             paragraph += sentance()
         else:
             paragraph += sentance()
 
-    return paragraph + "\n\n"
+    return paragraph + '\n\n'
 
 
 def document(paragraphs=0):
@@ -166,7 +166,7 @@ def document(paragraphs=0):
     if paragraphs == 0:
         paragraphs = randint(5, 20)
 
-    document = ""
+    document = ''
     for i in range(paragraphs):
         if i == 0:
             document += paragraph()
@@ -176,5 +176,5 @@ def document(paragraphs=0):
     return document
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

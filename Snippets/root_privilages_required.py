@@ -4,9 +4,9 @@ import os
 import sys
 
 if os.geteuid() == 0:
-    print("Running as root!")
+    print('Running as root!')
 else:
     # We are not root, restart as root
-    os.execvp("sudo", ["sudo"] + sys.argv)
+    os.execvp('sudo', ['sudo'] + sys.argv)
 
-print("Do something")
+print('Do something')

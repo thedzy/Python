@@ -36,9 +36,9 @@ def convert_to_dict(old_dict, new_dict):
 
 
 def change_termainal_font(**kwargs):
-    fgcolour = kwargs.get('fgcolour', "white")
-    bgcolour = kwargs.get('bgcolour', "black")
-    style = kwargs.get('style', "normal")
+    fgcolour = kwargs.get('fgcolour', 'white')
+    bgcolour = kwargs.get('bgcolour', 'black')
+    style = kwargs.get('style', 'normal')
     reset = kwargs.get('reset', False)
 
     font_style = {
@@ -94,31 +94,31 @@ def change_termainal_font(**kwargs):
         print('\033[{0};{1};{2}m'.format(font_style.get(style, 0), fg_colours.get(fgcolour, 37), bg_colours.get(bgcolour, 40)))
 
 # Get a NSDictionary
-prefs = SCPreferencesCreate(None, "", None)
+prefs = SCPreferencesCreate(None, '', None)
 network = SCPreferencesPathGetValue(prefs,'/NetworkServices')
 
 # Display the NSDictionary
 change_termainal_font(fgcolour='white', style='bold', bgcolour='red')
-print("=" * 40)
+print('=' * 40)
 print('Before')
-print("=" * 40)
+print('=' * 40)
 print(network)
 
 # Display the python dictionary
 change_termainal_font(fgcolour='white', style='bold', bgcolour='green')
-print("=" * 40)
+print('=' * 40)
 print('After with function')
-print("=" * 40)
+print('=' * 40)
 new_dict = {}
 convert_to_dict(network, new_dict)
 print(json.dumps(new_dict, indent=4))
 
 # Display the python dictionary using the conversion tool
 change_termainal_font(fgcolour='white', style='bold', bgcolour='blue')
-print("=" * 40)
+print('=' * 40)
 print('After with PyObjCTools')
-print("=" * 40)
+print('=' * 40)
 print(json.dumps(Conversion.pythonCollectionFromPropertyList(network), indent=4))
-print("=" * 40)
+print('=' * 40)
 
 change_termainal_font(reset=True)

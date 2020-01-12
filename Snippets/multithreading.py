@@ -8,7 +8,7 @@ start_time = time.time()
 total_time = 0
 loops = random.randrange(5, 25)
 
-print("Generating 5-25 threads that will take 0-25 seconds to complete")
+print('Generating 5-25 threads that will take 0-25 seconds to complete')
 
 
 def random_sleep(index, *args, **kwargs):
@@ -18,10 +18,10 @@ def random_sleep(index, *args, **kwargs):
 
 
 for x in range(loops):
-	thread = threading.Thread(group=None, target=random_sleep, name=None, args=[x, x**2], kwargs={"number": x**3}, daemon=None)
+	thread = threading.Thread(group=None, target=random_sleep, name=None, args=[x, x**2], kwargs={'number': x**3}, daemon=None)
 	thread.start()
 
 # Will wait for the last thread
 thread.join()
 
-print("Actual time :  {0:3.0f}s".format(time.time() - start_time))
+print('Actual time :  {0:3.0f}s'.format(time.time() - start_time))

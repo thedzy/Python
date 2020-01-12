@@ -25,7 +25,7 @@ The interface has its corresponding hardware attached.
 ## get_hardwareAddress(self):
 The hardware media access control (MAC) address for the interface, returned as a UTF-8 string.
 ## get_interfaceName(self):
-Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. "en1", "en2"). If there are no supported interfaces for the current system, then this method will return empty.
+Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. 'en1', 'en2'). If there are no supported interfaces for the current system, then this method will return empty.
 ## get_interfaceMode(self):
 Dynamically queries the interface for the current mode. Returns kCWInterfaceModeNone in the case of an error, or if the interface is not participating in a network.
 ## get_interfaceState(self):
@@ -39,7 +39,7 @@ Dynamically queries the interface state
 ## get_maximumLinkSpeed(self):
 Dynamically queries the interface for the maximum link speed supported by the medium in bits per second.
 ## get_name(self):
-Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. "en1", "en2"). If there are no supported interfaces for the current system, then this method will return empty.
+Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. 'en1', 'en2'). If there are no supported interfaces for the current system, then this method will return empty.
 ## get_noiseMeasurement(self):
 Dynamically queries the interface for the current aggregate noise measurement. Returns 0 in the case of an error, or if the interface is not participating in a network.
 ## get_networkInterfaceAvailable(self):

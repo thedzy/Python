@@ -11,21 +11,21 @@ Creates a GUI input notification using the PyObjC framework
 Allows for easy access to the notification centre from your python script
 
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "1.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '1.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 try:
 	from AppKit import *
 	from PyObjCTools import AppHelper
 except ImportError as err:
 	print(err)
-	print("You need to have the PyObjC frameworks installed")
-	print("easy_install -U pyobjc")
+	print('You need to have the PyObjC frameworks installed')
+	print('easy_install -U pyobjc')
 
 
 class Notification(object):
@@ -38,7 +38,7 @@ class Notification(object):
 		"""
 		__init__
 		Initialise dialog
-		:param messageText: "The message for the dialog
+		:param messageText: 'The message for the dialog
 		:param kwargs:
 			subtitle = Subtitle to title (string)
 			informativeText = Information below the alert message (string)
@@ -49,17 +49,17 @@ class Notification(object):
 		"""
 		super(Notification, self).__init__()
 		self.messageText = messageText
-		self.subtitle = kwargs.get('subtitle', "")
-		self.informativeText = kwargs.get('informativeText', "")
+		self.subtitle = kwargs.get('subtitle', '')
+		self.informativeText = kwargs.get('informativeText', '')
 
 		self.icon = kwargs.get('icon', None)
 		self.contentImage = kwargs.get('contentImage', None)
 		self.buttons = kwargs.get('buttons', ['OK'])
 		self.response = kwargs.get('response', False)
-		self.responseText = kwargs.get('responseText', "")
+		self.responseText = kwargs.get('responseText', '')
 
 		self.responseCode = 0
-		self.responseMessage = ""
+		self.responseMessage = ''
 
 	def display(self):
 		"""
@@ -163,7 +163,7 @@ class Notification(object):
 		:return: Complete (bool)
 		"""
 		self.responseCode = notification.activationType()
-		self.responseMessage = "Cancelled"
+		self.responseMessage = 'Cancelled'
 
 		# Stop even loop if start with runConsoleEventLoop
 		AppHelper.stopEventLoop()

@@ -14,13 +14,13 @@ Lots of help from:
 https://gist.github.com/pudquick/9683c333e73a82379b8e377eb2e6fc41
 
 """
-__author__ = "thedzy"
-__copyright__ = "Copyright 2019, thedzy"
-__license__ = "GPL"
-__version__ = "1.0"
-__maintainer__ = "thedzy"
-__email__ = "thedzy@hotmail.com"
-__status__ = "Developer"
+__author__ = 'thedzy'
+__copyright__ = 'Copyright 2019, thedzy'
+__license__ = 'GPL'
+__version__ = '1.0'
+__maintainer__ = 'thedzy'
+__email__ = 'thedzy@hotmail.com'
+__status__ = 'Developer'
 
 import struct
 
@@ -30,8 +30,8 @@ from Foundation import NSBundle
 
 objc.loadBundleFunctions(NSBundle.bundleWithIdentifier_('com.apple.AE'),
                          globals(),
-                         [("AESendMessage",
-                           b"i^{AEDesc=I^^{OpaqueAEDataStorageType}}^{AEDesc=I^^{OpaqueAEDataStorageType}}iq"), ])
+                         [('AESendMessage',
+                           b'i^{AEDesc=I^^{OpaqueAEDataStorageType}}^{AEDesc=I^^{OpaqueAEDataStorageType}}iq'), ])
 
 
 def send_apple_event(event, app='com.apple.loginwindow'):
@@ -79,9 +79,9 @@ def send_apple_event(event, app='com.apple.loginwindow'):
 
     # https://developer.apple.com/documentation/coreservices/apple_events/1542799-id_constants_for_the_aecreateapp
     AECreateAppleEvent = {
-        "kAutoGenerateReturnID": -1,
+        'kAutoGenerateReturnID': -1,
         # the Apple Event Manager assigns to the created Apple event a return ID that is unique to the current session
-        "kAnyTransactionID": 0  # if the Apple event is not one of a series of interdependent Apple events
+        'kAnyTransactionID': 0  # if the Apple event is not one of a series of interdependent Apple events
     }
 
     # Targeting applications by bundle ID is only available in Mac OS X 10.3 or later.
@@ -92,12 +92,12 @@ def send_apple_event(event, app='com.apple.loginwindow'):
         four_char_code('aevt'),
         four_char_code(event),
         event_descriptor,
-        AECreateAppleEvent["kAutoGenerateReturnID"],
-        AECreateAppleEvent["kAnyTransactionID"]).aeDesc()
+        AECreateAppleEvent['kAutoGenerateReturnID'],
+        AECreateAppleEvent['kAnyTransactionID']).aeDesc()
 
     # http://mirror.informatimago.com/next/developer.apple.com/documentation/Carbon/Reference/Apple_Event_Manager/apple_event_manager.pdf
-    return AESendMessage(event, None, AESendMode["kAENoReply"] | AESendMode["kAENeverInteract"],
-                         AETimeout["kAEDefaultTimeout"])
+    return AESendMessage(event, None, AESendMode['kAENoReply'] | AESendMode['kAENeverInteract'],
+                         AETimeout['kAEDefaultTimeout'])
 
 
 def four_char_code(code):

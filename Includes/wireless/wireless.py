@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 Script:	wireless.py
 Date:	2019-01-24
@@ -10,26 +9,25 @@ Description:
 Class to acceess wireless network information and modify
 See: https://developer.apple.com/documentation/corewlan/
 """
-__author__ = "thedzy"
-__copyright__ = "Copyright 2019, thedzy"
-__license__ = "GPL"
-__version__ = "1.0"
-__maintainer__ = "thedzy"
-__email__ = "thedzy@hotmail.com"
-__status__ = "Developer"
+__author__ = 'thedzy'
+__copyright__ = 'Copyright 2019, thedzy'
+__license__ = 'GPL'
+__version__ = '1.0'
+__maintainer__ = 'thedzy'
+__email__ = 'thedzy@hotmail.com'
+__status__ = 'Developer'
+
+import objc
 
 
 class Wifi:
 
     def __init__(self):
-        import os
-        import objc
-
         objc.loadBundle('CoreWLAN', bundle_path='/System/Library/Frameworks/CoreWLAN.framework',
                         module_globals=globals())
 
     # Get commands
-    # print("\n".join(dir(CWInterface)))
+    # print('\n'.join(dir(CWInterface)))
 
     """
     FINDS
@@ -81,9 +79,9 @@ class Wifi:
 
     def find_clearScanCache(self):
         """
-		The networks currently in the scan cache for the WLAN interface.
-		:return: (Array) (CWNetwork). Returns nil in the case of an error.
-		"""
+        The networks currently in the scan cache for the WLAN interface.
+        :return: (Array) (CWNetwork). Returns nil in the case of an error.
+        """
         return CWInterface.interface().clearScanCache()
 
     # GETS
@@ -156,7 +154,7 @@ class Wifi:
 
     def get_interfaceName(self):
         """
-        Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. "en1", "en2"). If
+        Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. 'en1', 'en2'). If
         there are no supported interfaces for the current system, then this method will return empty.
         Returns nil in the case of an error.
         :return: String
@@ -220,7 +218,7 @@ class Wifi:
 
     def get_name(self):
         """
-        Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. "en1", "en2"). If
+        Returns a NSString representing the supported WLAN BSD interface name on the current system (i.e. 'en1', 'en2'). If
         there are no supported interfaces for the current system, then this method will return empty.
         Returns nil in the case of an error.
         :return: String
@@ -382,7 +380,7 @@ class Wifi:
         :return: bool
         See: wifi_get_powerOn()
         """
-        iface.set_Power_error_(power, None)
+        CWInterface.set_Power_error_(power, None)
         return CWInterface.interface().powerOn()
 
     """
@@ -407,7 +405,7 @@ class Wifi:
         :param error: (NSError) An NSError object passed by reference, which will be populated with the error code and the error description if an error occurs during the execution of this method. This parameter is optional and can be passed as nil.
         :return: A Boolean value which will indicate whether or not a failure occurred during execution. YES indicates no error occurred.
         """
-        network = wifi_find_Networks(ssid)
+        network = self.find_Networks(ssid)
         if network is None:
             return False
 
@@ -423,7 +421,7 @@ class Wifi:
         :param error: (NSError) An NSError object passed by reference, which will be populated with the error code and the error description if an error occurs during the execution of this method. This parameter is optional and can be passed as nil.
         :return: A Boolean value which will indicate whether or not a failure occurred during execution. YES indicates no error occurred.
         """
-        network = wifi_find_Networks(ssid)
+        network = self.find_Networks(ssid)
         if network is None:
             return False
 

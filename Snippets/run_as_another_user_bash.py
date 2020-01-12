@@ -7,15 +7,15 @@ import subprocess
 
 def main():
 	# Use os.getlogin() in place of the username if you want to run a command as the current user
-	run_result = run_bash_as_user('whoami', "account")
+	run_result = run_bash_as_user('whoami', 'account')
 
 	if run_result[0] is not None:
-		print("Stdout : %s" % run_result[0].decode("utf-8"))
+		print('Stdout : %s' % run_result[0].decode('utf-8'))
 	if run_result[1] is not None:
-		print("Stderr : %s" % run_result[1].decode("utf-8"))
+		print('Stderr : %s' % run_result[1].decode('utf-8'))
 
 	# If you want to seperate the multiline input into an array
-	print(run_result[0].decode("utf-8").splitlines())
+	print(run_result[0].decode('utf-8').splitlines())
 
 
 def run_bash_as_user(cmd, user_name):
@@ -51,5 +51,5 @@ def run_bash_as_user(cmd, user_name):
 	return cmd_result
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()

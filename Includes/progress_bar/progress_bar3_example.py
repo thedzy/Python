@@ -10,10 +10,10 @@ def main():
 	for item in range(prog_length):
 		# do real work here
 		time.sleep(0.1)
-		progressbar(item + 1, prog_length, " Loading....", [1.0, 0.1, 0.5])
+		progressbar(item + 1, prog_length, ' Loading....', [1.0, 0.1, 0.5])
 
-	sys.stdout.write("\n")
+	sys.stdout.write('\n')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()

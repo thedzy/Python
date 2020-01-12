@@ -10,13 +10,13 @@ Description:
 Creates a GUI list selection with only 1 selection
 
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "1.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '1.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 
 import os
@@ -38,7 +38,7 @@ class popupInput(tk.Tk):
 		self.createWindow()
 
 		# Button Handlers
-		self.protocol("WM_DELETE_WINDOW", self.close)
+		self.protocol('WM_DELETE_WINDOW', self.close)
 		self.bind('<Return>', lambda event: self.buttonOK())
 
 	def createWindow(self):
@@ -46,7 +46,7 @@ class popupInput(tk.Tk):
 		# Upper center window
 		x = (self.winfo_screenwidth() / 2) - 200
 		y = (self.winfo_screenheight() / 3) - 45
-		self.geometry("+%d+%d" % (x, y))
+		self.geometry('+%d+%d' % (x, y))
 
 		# Set min/max sizing for resizing
 		self.minsize(width=400, height=300)
@@ -57,8 +57,8 @@ class popupInput(tk.Tk):
 
 		# Frame 1
 		self.frame1 = tk.Frame(self, background=windowcolor)
-		self.inputlabelValue = tk.StringVar(value="Input:")
-		self.inputlabel = ttk.Label(self.frame1,  textvariable=self.inputlabelValue, justify="left", anchor="w", font=("Helvetica", 16), width=10, background=windowcolor)
+		self.inputlabelValue = tk.StringVar(value='Input:')
+		self.inputlabel = ttk.Label(self.frame1,  textvariable=self.inputlabelValue, justify='left', anchor='w', font=('Helvetica', 16), width=10, background=windowcolor)
 		self.inputlabel.pack(fill=tk.X, expand=True)
 
 		self.frame1.pack(fill=tk.X, padx=5, pady=5)
@@ -66,17 +66,17 @@ class popupInput(tk.Tk):
 		# Frame 2
 		self.frame2 = tk.Frame(self, background=windowcolor)
 		self.input = tk.StringVar()
-		self.inputfield = tk.Listbox(self.master, font=("Helvetica", 16), background="white")
+		self.inputfield = tk.Listbox(self.master, font=('Helvetica', 16), background='white')
 		self.inputfield.pack(fill=tk.BOTH, expand=True)
 
 		self.frame2.pack(fill=tk.BOTH, padx=5)
 
 		# Frame 3
 		self.frame3 = tk.Frame(self, background=windowcolor)
-		self.button2 = tk.Button(self.frame3, text='Cancel', justify="center", anchor="ne", highlightbackground=windowcolor, command=self.buttonCancel)
+		self.button2 = tk.Button(self.frame3, text='Cancel', justify='center', anchor='ne', highlightbackground=windowcolor, command=self.buttonCancel)
 		self.button2.pack(side=tk.RIGHT)
 
-		self.button1 = tk.Button(self.frame3, text='OK', justify="center", anchor="ne", highlightbackground=windowcolor, command=self.buttonOK)
+		self.button1 = tk.Button(self.frame3, text='OK', justify='center', anchor='ne', highlightbackground=windowcolor, command=self.buttonOK)
 		self.button1.pack(side=tk.RIGHT)
 		self.frame3.pack(fill=tk.X, padx=5)
 
@@ -85,7 +85,7 @@ class popupInput(tk.Tk):
 			from Cocoa import NSRunningApplication, NSApplicationActivateIgnoringOtherApps
 		except ImportError as err:
 			print(err)
-			print("pip3 install pyobjc")
+			print('pip3 install pyobjc')
 			sys.exit()
 		app = NSRunningApplication.runningApplicationWithProcessIdentifier_(os.getpid())
 		app.activateWithOptions_(NSApplicationActivateIgnoringOtherApps)
@@ -107,7 +107,7 @@ class popupInput(tk.Tk):
 		# Detroy the window and mark and inactive
 		self.destroy()
 
-	def getInput(self, title="Scale", question="Please input:", array=None):
+	def getInput(self, title='Scale', question='Please input:', array=None):
 		if array is None:
 			array = []
 		for listitem in array:

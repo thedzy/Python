@@ -5,13 +5,13 @@ from popup_input import *
 
 
 def main():
-	name, exitcode = popupInput().getInput("Name", "What is your name?")
+	name, exitcode = popupInput().getInput('Name', 'What is your name?')
 
 	if exitcode:
-		print("Name: %s\nExit Code: %d\n" % (name, exitcode))
+		print('Name: %s\nExit Code: %d\n' % (name, exitcode))
 	else:
-		print("Exited")
+		print('Exited')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()

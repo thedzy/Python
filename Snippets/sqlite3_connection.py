@@ -4,12 +4,12 @@
 import sqlite3
 import time
 
-DATABASE = "/tmp/sqlite3.db"
+DATABASE = '/tmp/sqlite3.db'
 
 
 def main():
-	first_name = "Firstname"
-	last_name = "LastName"
+	first_name = 'Firstname'
+	last_name = 'LastName'
 
 	sqlcon, sqlcur = sql_connection()
 
@@ -17,18 +17,18 @@ def main():
 	try:
 		sqlcur.execute("""CREATE TABLE Contacts (Time INTEGER, Fname TEXT, Lname TEXT)""")
 	except:
-		print("Table exists")
+		print('Table exists')
 
 	# Sample write
 	sqlcur.execute("""INSERT INTO Contacts (Time, Fname, Lname) VALUES (%d,'%s','%s');""" % (get_time(), first_name, last_name))
 
 	# Sample read and print results
 	results = sqlcur.execute("""SELECT * from Contacts""")
-	print('| %15s | %15s | %15s |' % ("Time", "FirstName", "LastName"))
-	print("-" * 55)
+	print('| %15s | %15s | %15s |' % ('Time', 'FirstName', 'LastName'))
+	print('-' * 55)
 	for row in results:
 		print('| %15s | %15s | %15s |' % row)
-	print("-" * 55)
+	print('-' * 55)
 
 	# Close connection
 	sql_diconnection(sqlcon, sqlcur)
@@ -63,6 +63,6 @@ def sql_diconnection(connection, cursor):
 	connection.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()
 

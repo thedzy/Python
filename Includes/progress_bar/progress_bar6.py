@@ -12,13 +12,13 @@ Customisable colour, title and header
 Shows percentage and estimated time,
 Can add output in the progressbar
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "6.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '6.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 import time
 import tkinter as tk
@@ -47,7 +47,7 @@ class ProgressBar(tk.Tk):
         self._active = True
 
         # Destroy the window is the app is closed
-        self.protocol("WM_DELETE_WINDOW", self.close)
+        self.protocol('WM_DELETE_WINDOW', self.close)
 
     def _createWindow(self):
         self._windowHeight = 60
@@ -63,32 +63,32 @@ class ProgressBar(tk.Tk):
         self._backColour = 'white'
         style = ttk.Style()
         style.theme_use('default')
-        style.configure("black.Horizontal.TProgressbar", background='red')
-        style.layout("LabeledProgressbar",
+        style.configure('black.Horizontal.TProgressbar', background='red')
+        style.layout('LabeledProgressbar',
                      [('LabeledProgressbar.trough',
                        {'children': [('LabeledProgressbar.pbar',
                                       {'side': 'left', 'sticky': 'ns'}),
-                                     ("LabeledProgressbar.label", {"sticky": ""})],
+                                     ('LabeledProgressbar.label', {'sticky': ''})],
                         'sticky': 'nswe'})])
-        style.configure("LabeledProgressbar", text="0 %", background='green', font=("Helvetica", 16), foregroundforeground="black")
+        style.configure('LabeledProgressbar', text='0 %', background='green', font=('Helvetica', 16), foregroundforeground='black')
 
         # Define Label
-        self._labelValue = tk.StringVar(value="Loading...")
-        self._label = ttk.Label(self.master, text="xxxxxxxxxxx", justify="left", anchor="w", textvariable=self._labelValue, font=("Helvetica", 16), background=windowcolor)
+        self._labelValue = tk.StringVar(value='Loading...')
+        self._label = ttk.Label(self.master, text='xxxxxxxxxxx', justify='left', anchor='w', textvariable=self._labelValue, font=('Helvetica', 16), background=windowcolor)
         self._label.pack(fill=tk.X, expand=False, padx=5)
 
         # Define Progress bar
-        self._progress = ttk.Progressbar(self, orient="horizontal", length=300, mode="determinate", style="LabeledProgressbar")
+        self._progress = ttk.Progressbar(self, orient='horizontal', length=300, mode='determinate', style='LabeledProgressbar')
         self._progress.pack(fill=tk.X, expand=False)
 
         # Define Lable
-        self._statusValue = tk.StringVar(value="0.0 seconds")
-        self._status = ttk.Label(self.master, text="0.0 seconds", justify="left", anchor="e",
-                                 textvariable=self._statusValue, font=("Helvetica", 13), background=windowcolor)
+        self._statusValue = tk.StringVar(value='0.0 seconds')
+        self._status = ttk.Label(self.master, text='0.0 seconds', justify='left', anchor='e',
+                                 textvariable=self._statusValue, font=('Helvetica', 13), background=windowcolor)
         self._status.pack(fill=tk.X, expand=False, padx=5, pady=1)
 
         # Define Output
-        self._output = tk.Text(self.master, font=("Courier", 12), foreground="white", background="black")
+        self._output = tk.Text(self.master, font=('Courier', 12), foreground='white', background='black')
         self._output.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
 
         # Initialise positions
@@ -112,7 +112,7 @@ class ProgressBar(tk.Tk):
         Set Bar position value
         :param position: Integer
         """
-        self._progress["value"] = position
+        self._progress['value'] = position
 
         self.__refresh()
 
@@ -121,7 +121,7 @@ class ProgressBar(tk.Tk):
         Get Position
         :return: Interger
         """
-        return self._progress["value"]
+        return self._progress['value']
 
     def setIncrement(self, increment=1):
         """ Increment the bar by a value
@@ -136,7 +136,7 @@ class ProgressBar(tk.Tk):
         Set Bar Maximum value
         :param max: Integer
         """
-        self._progress["maximum"] = max
+        self._progress['maximum'] = max
 
         self.__refresh()
 
@@ -146,7 +146,7 @@ class ProgressBar(tk.Tk):
         :param text: Text to add to the window
         :return: void
         """
-        self._output.insert(tk.END, str(text) + "\n")
+        self._output.insert(tk.END, str(text) + '\n')
 
         if self._windowHeight < (self.winfo_screenheight() - 100):
             # if tkFont gets fixed, will use measure here instead of a fixed value
@@ -166,17 +166,17 @@ class ProgressBar(tk.Tk):
         if barColour.startswith('#') and len(barColour) == 7:
             self._barColour = barColour
         else:
-            print("Invalid colour for bar: %s" % barColour)
-            self._barColour = "#000000"
+            print('Invalid colour for bar: %s' % barColour)
+            self._barColour = '#000000'
 
         if backColour.startswith('#') and len(backColour) == 7:
             self._backColour = backColour
         else:
-            print("Invalid colour for back: %s" % backColour)
-            self._barColour = "#000000"
+            print('Invalid colour for back: %s' % backColour)
+            self._barColour = '#000000'
 
         style = ttk.Style()
-        style.configure("LabeledProgressbar", background=self._barColour, troughcolor=self._backColour)
+        style.configure('LabeledProgressbar', background=self._barColour, troughcolor=self._backColour)
 
         self.__refresh()
 
@@ -188,9 +188,9 @@ class ProgressBar(tk.Tk):
         style = ttk.Style()
         style.theme_use('default')
         if bool:
-            style.configure("Horizontal.TProgressbar", mode="determinate")
+            style.configure('Horizontal.TProgressbar', mode='determinate')
         else:
-            style.configure("Horizontal.TProgressbar", mode="indeterminate")
+            style.configure('Horizontal.TProgressbar', mode='indeterminate')
 
         self.__refresh()
 
@@ -198,21 +198,21 @@ class ProgressBar(tk.Tk):
         # Calculate time remaining
         timeelapsed = (time.time() - self._timestart)
         try:
-            timepredicted = (timeelapsed / self._progress["value"]) * (self._progress["maximum"] - self._progress["value"])
+            timepredicted = (timeelapsed / self._progress['value']) * (self._progress['maximum'] - self._progress['value'])
         except:
             timepredicted = 0
 
         minutes, seconds = divmod(timepredicted, 60)
         hours, minutes = divmod(minutes, 60)
-        self._statusValue.set("Estimated Time Remaining: %02d:%02d:%04.1f" % (hours, minutes, seconds))
+        self._statusValue.set('Estimated Time Remaining: %02d:%02d:%04.1f' % (hours, minutes, seconds))
 
         # Calculate percent and display
         style = ttk.Style()
-        style.configure("LabeledProgressbar", text="%02d%%" % (self._progress["value"]/self._progress["maximum"]*100))
+        style.configure('LabeledProgressbar', text='%02d%%' % (self._progress['value']/self._progress['maximum']*100))
 
         # Get font colour for overlay text
         style = ttk.Style()
-        if (self._progress["value"] / self._progress["maximum"]) > 0.5:
+        if (self._progress['value'] / self._progress['maximum']) > 0.5:
             if self._colourContrast(self._barColour) < 128:
                 txtColour = 'white'
             else:
@@ -223,7 +223,7 @@ class ProgressBar(tk.Tk):
                 txtColour = 'white'
             else:
                 txtColour = 'black'
-        style.configure("LabeledProgressbar", background=self._barColour, troughcolor=self._backColour, foreground=txtColour)
+        style.configure('LabeledProgressbar', background=self._barColour, troughcolor=self._backColour, foreground=txtColour)
 
         #print(self._colourContrast(self._barColour))
 
@@ -233,14 +233,14 @@ class ProgressBar(tk.Tk):
 
     def _colourContrast(self, value):
         # Get style
-        #styletest = self._progress["style"]
+        #styletest = self._progress['style']
         #print(ttk.Style().lookup(styletest, 'background'))
 
-        if "name" == "colourname":
+        if 'name' == 'colourname':
             return self._colourContrastName(value)
         if value.startswith('#'):
             return self._colourContrastHex(value)
-        if "rgb" == "rgbvalue":
+        if 'rgb' == 'rgbvalue':
             return self._colourContrastHex(red, green, blue)
 
         return 0
@@ -251,7 +251,7 @@ class ProgressBar(tk.Tk):
         return self._colourContrastRGB(red, green, blue)
 
     def _colourContrastName(self, named):
-        print("todo: Convert name to rgb, for furutre support")
+        print('todo: Convert name to rgb, for furutre support')
         return self._colourContrastHex(red, green, blue)
 
     def _colourContrastRGB(self, red, green, blue):

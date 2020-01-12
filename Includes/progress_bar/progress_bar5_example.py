@@ -7,7 +7,7 @@ def main():
 	progressLength = 100
 
 	app = ProgressBar()
-	app.setTitle("Progressing...")
+	app.setTitle('Progressing...')
 	app.setMax(progressLength)
 	app.setColour('green', 'white')
 	app.setDeterminante(True)
@@ -22,5 +22,5 @@ def main():
 		print(progressCount)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()

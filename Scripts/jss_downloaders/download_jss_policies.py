@@ -9,16 +9,16 @@ Platform: MacOS
 Description:
 Downloads the policies information.
 Data contains a .json for offline searching.
-Results are saved in a folder with teh time and date under "Policies"
+Results are saved in a folder with teh time and date under 'Policies'
 
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "1.2"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '1.2'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 
 import sys, time, os
@@ -47,33 +47,33 @@ def main():
 
 	app = ProgressBar()
 	app.setColour('#019650', '#ffffff')
-	app.setTitle("Reading in Policies")
+	app.setTitle('Reading in Policies')
 
 	# Get objects/set progress length
-	policies = jamf_get_data("policies")["policies"]
+	policies = jamf_get_data('policies')['policies']
 	app.setMax(len(policies))
 
 	# Loop through policies
 	start_time = time.time()
 	for policy in policies:
 
-		policy_json = jamf_get_data("policies/id/" + str(policy["id"]))
-		policy_data = policy_json["policy"]
+		policy_json = jamf_get_data('policies/id/' + str(policy['id']))
+		policy_data = policy_json['policy']
 
-		policy_name = policy_json["policy"]["general"]["name"]
+		policy_name = policy_json['policy']['general']['name']
 
-		#print(policy_json["policy"]["general"]["category"]["id"])
-		if policy_json["policy"]["general"]["category"]["id"] >= 0:
-			#print("Getting... " + str(policy["id"]))
-			app.setLabel("%s" % policy_name)
-			#print(base64.standard_b64decode(policy_data).decode("utf-8"))
+		#print(policy_json['policy']['general']['category']['id'])
+		if policy_json['policy']['general']['category']['id'] >= 0:
+			#print('Getting... ' + str(policy['id']))
+			app.setLabel('%s' % policy_name)
+			#print(base64.standard_b64decode(policy_data).decode('utf-8'))
 			policy_data_readable = json.dumps(policy_data, indent=4, sort_keys=True)
 
-			policy_file = open(policy_folder + '/' + format_filename(policy_name) + " " + str(policy["id"]) + '.json', 'wb')
+			policy_file = open(policy_folder + '/' + format_filename(policy_name) + ' ' + str(policy['id']) + '.json', 'wb')
 			policy_file.write(policy_data_readable.encode())
 			#policy_file.close()
 		else:
-			app.setLabel("Skipping one time policy")
+			app.setLabel('Skipping one time policy')
 
 		# Move progress
 		app.setIncrement(1)
@@ -81,7 +81,7 @@ def main():
 	# print end/total time
 	minutes, seconds = divmod((time.time() - start_time), 60)
 	hours, minutes = divmod(minutes, 60)
-	print("Time to complete: %02d:%02d:%04.1f" % (hours, minutes, seconds))
+	print('Time to complete: %02d:%02d:%04.1f' % (hours, minutes, seconds))
 
 # Get user credentials
 def user_auth():
@@ -89,12 +89,12 @@ def user_auth():
 	global apiuser
 	global apipass
 
-	apiuser, apipass, exitcode = popupUserPass().getCredentials("JSS Login")
+	apiuser, apipass, exitcode = popupUserPass().getCredentials('JSS Login')
 
 	if exitcode:
-		print("Username: %s\nPassword: %s\n" % (apiuser, "********"))
+		print('Username: %s\nPassword: %s\n' % (apiuser, '********'))
 	else:
-		print("No credentials supplied")
+		print('No credentials supplied')
 		exit()
 
 # Create a standard curl object
@@ -110,7 +110,7 @@ def get_curl(url):
 	curl.setopt(pycurl.HTTPAUTH, pycurl.HTTPAUTH_BASIC)
 
 	# When using user/pss
-	curl.setopt(pycurl.USERPWD, "{}:{}".format(apiuser, apipass))
+	curl.setopt(pycurl.USERPWD, '{}:{}'.format(apiuser, apipass))
 	curl.setopt(pycurl.HTTPHEADER, ['Accept: application/json', 'Content-Type: application/xml', 'charset=UTF-8'])
 
 	curl.setopt(pycurl.FOLLOWLOCATION, 1)
@@ -146,7 +146,7 @@ def jamf_get_data(object):
 	# Get accounts
 	try:
 		# Start Curl
-		curl = get_curl(apiurl + "/" + object)
+		curl = get_curl(apiurl + '/' + object)
 
 		# write out to to apidata
 		curl.setopt(pycurl.WRITEFUNCTION, apidata.write)
@@ -156,7 +156,7 @@ def jamf_get_data(object):
 
 		# Get http code & data
 		apicode = curl.getinfo(pycurl.HTTP_CODE)
-		#print(apidata.getvalue().decode("utf-8"))
+		#print(apidata.getvalue().decode('utf-8'))
 
 		# Close out pycurl session
 		curl.close()
@@ -169,7 +169,7 @@ def jamf_get_data(object):
 		#print ('Success getting ' + object)
 		jsondata = json.loads(apidata.getvalue())
 	else:
-		print("HTTP error: " + str(apicode) + " at " + str(get_time()) + " epoch")
+		print('HTTP error: ' + str(apicode) + ' at ' + str(get_time()) + ' epoch')
 		sys.exit()
 
 	return jsondata
@@ -177,7 +177,7 @@ def jamf_get_data(object):
 # Reformat the filename to avoid special characters
 def format_filename(sfilename):
 	# Borrowed from https://gist.github.com/seanh/93666
-	valid_chars = "-_.() %s%s" % (string.ascii_letters, string.digits)
+	valid_chars = '-_.() %s%s' % (string.ascii_letters, string.digits)
 	filename = ''.join(char for char in sfilename if char in valid_chars)
 	filename = filename.replace(' ', '_')  # I don't like spaces in filenames.
 	return filename
@@ -188,6 +188,6 @@ def get_time():
 	return epochmilli
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()
 

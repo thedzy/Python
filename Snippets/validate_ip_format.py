@@ -8,10 +8,10 @@ ip = sys.argv[1]
 
 try:
 	socket.inet_pton(socket.AF_INET, ip)
-	print("Valid IPv4")
+	print('Valid IPv4')
 except socket.error:
 	try:
 		socket.inet_pton(socket.AF_INET6, ip)
-		print("Valid IPv6")
+		print('Valid IPv6')
 	except socket.error:
-		print("Invalid")
+		print('Invalid')

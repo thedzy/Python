@@ -10,21 +10,21 @@ Description:
 Creates a GUI file open/save dialog using the PyObjC framework
 Returns filename(s)
 """
-__author__      = "thedzy"
-__copyright__   = "Copyright 2018, thedzy"
-__license__     = "GPL"
-__version__     = "1.0"
-__maintainer__  = "thedzy"
-__email__       = "thedzy@hotmail.com"
-__status__      = "Developer"
+__author__      = 'thedzy'
+__copyright__   = 'Copyright 2018, thedzy'
+__license__     = 'GPL'
+__version__     = '1.0'
+__maintainer__  = 'thedzy'
+__email__       = 'thedzy@hotmail.com'
+__status__      = 'Developer'
 
 import os
 try:
 	from AppKit import *
 except ImportError as err:
 	print(err)
-	print("You need to have the PyObjC frameworks installed")
-	print("easy_install -U pyobjc")
+	print('You need to have the PyObjC frameworks installed')
+	print('easy_install -U pyobjc')
 
 
 class FileDialog(object):
@@ -53,8 +53,8 @@ class FileDialog(object):
 			extensionHidden (bool): A Boolean that indicates whether the panel’s browser shows the file extensions of all files and directories
 			filetypes (array): The value of this property specifies the file types the user can save the file as. A file type can be a common file extension, or a UTI. The default value of this property is nil, which indicates that any file type can be used.
 			message (string): A string containing the message to display to the user above the file selection
-			defaultButton (string):  A string containing the text of the "Open" button
-			requiredFileType (string): A string containing the required file type ie. "txt"
+			defaultButton (string):  A string containing the text of the 'Open' button
+			requiredFileType (string): A string containing the required file type ie. 'txt'
 			resolvesAliases (bool): A Boolean that indicates whether the panel’s browser resolves the alias
 			showsHiddenFiles (bool): A Boolean value that indicates whether the panel displays files that are normally hidden from the user.
 			title (string): The title of the panel. (non functional)
@@ -71,12 +71,12 @@ class FileDialog(object):
 		dialog.setExtensionHidden_(kwargs.get('extensionHidden', True))
 		if not kwargs.get('message', None) is None:
 			dialog.setMessage_(kwargs.get('message', None))
-		dialog.setPrompt_(kwargs.get('defaultButton', "Open"))
+		dialog.setPrompt_(kwargs.get('defaultButton', 'Open'))
 		if not kwargs.get('requiredFileType', None) is None:
 			dialog.setRequiredFileType_(kwargs.get('requiredFileType', None))
 		dialog.setResolvesAliases_(kwargs.get('resolvesAliases', True))
 		dialog.setShowsHiddenFiles_(kwargs.get('showsHiddenFiles', False))
-		dialog.setTitle_(kwargs.get('title', "Open"))
+		dialog.setTitle_(kwargs.get('title', 'Open'))
 		dialog.setTreatsFilePackagesAsDirectories_(kwargs.get('treatsFilePackagesAsDirectories', False))
 
 		self._focus()
@@ -118,15 +118,15 @@ class FileDialog(object):
 		dialog.setExtensionHidden_(kwargs.get('extensionHidden', True))
 		if not kwargs.get('message', None) is None:
 			dialog.setMessage_(kwargs.get('message', None))
-		dialog.setNameFieldLabel_(kwargs.get('nameFieldLabel', "Save As:"))
+		dialog.setNameFieldLabel_(kwargs.get('nameFieldLabel', 'Save As:'))
 		if not kwargs.get('nameFieldStringValue', None) is None:
 			dialog.setNameFieldStringValue_(kwargs.get('nameFieldStringValue', None))
-		dialog.setPrompt_(kwargs.get('defaultButton', "Save"))
+		dialog.setPrompt_(kwargs.get('defaultButton', 'Save'))
 		if not kwargs.get('requiredFileType', None) is None:
 			dialog.setRequiredFileType_(kwargs.get('requiredFileType', None))
 		dialog.setShowsHiddenFiles_(kwargs.get('showsHiddenFiles', False))
 		dialog.setShowsTagField_(kwargs.get('showsTagField', False))
-		dialog.setTitle_(kwargs.get('title', "Save"))
+		dialog.setTitle_(kwargs.get('title', 'Save'))
 		dialog.setTreatsFilePackagesAsDirectories_(kwargs.get('treatsFilePackagesAsDirectories', False))
 
 		self._focus()
@@ -134,7 +134,7 @@ class FileDialog(object):
 		if dialog_return:
 			return dialog.filename()
 		else:
-			print("\n".join(dir(type(NSURL))))
+			print('\n'.join(dir(type(NSURL))))
 			return None
 
 	def _focus(self):

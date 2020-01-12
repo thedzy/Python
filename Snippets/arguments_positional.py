@@ -13,9 +13,9 @@ print(len(sys.argv))
 print(sys.argv)
 
 # Arguments 1 and 3
-print("%s %s" % (sys.argv[1], sys.argv[3]))
+print('%s %s' % (sys.argv[1], sys.argv[3]))
 
-# Arguments 4+"
+# Arguments 4+'
 print(sys.argv[4:])
 
 # Arguments 4-6
@@ -23,4 +23,4 @@ print(sys.argv[4:7])
 
 # Loop through arguments
 for arg in sys.argv:
-	print("Argument:" + arg)
+	print('Argument:' + arg)

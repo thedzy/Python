@@ -18,12 +18,12 @@ def main():
 	print('\n\nWifi Networks')
 	print_info('SSID', 'Band')
 
-	print("-" * 40)
+	print('-' * 40)
 	for wifi_network in wifi_networks:
 		CWChannelBand = {
-			0: "Unknown",
-			1: "2GHz",
-			2: "5GHz"
+			0: 'Unknown',
+			1: '2GHz',
+			2: '5GHz'
 		}
 		print_info(wifi_network.ssid(), CWChannelBand[wifi_network.wlanChannel().channelBand()])
 
@@ -37,5 +37,5 @@ def print_info(title='', status=''):
 	print('%-20s: %s' % (title, str(status)))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	main()
