@@ -18,5 +18,9 @@ Includes several examples of creating a text based or GUI progress bar while exe
 ## [simple_multitasking](https://github.com/thedzy/Python/tree/master/Includes/simple_multitasking)
 Includes an example of parallel processes and retrieving the results
 
+## [simple_multitasking2](https://github.com/thedzy/Python/tree/master/Includes/simple_multitasking2)
+Simplified the usage.  Requires far less code in your program and easier to read.
+Includes an example of parallel processes and retrieving the results
+
 ## [wireless](https://github.com/thedzy/Python/tree/master/Includes/wireless)
 Includes examples of retreiving information about hardware and networks
