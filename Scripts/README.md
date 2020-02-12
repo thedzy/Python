@@ -1,8 +1,8 @@
 # Scripts
 Stand alone scripts
 
-## [embed_file_in_a_script](https://github.com/thedzy/Python/tree/master/Scripts/embed_file_in_a_script)
-Create a script that will embed and extract a file
+## [embed_file_in_a_script](https://github.com/thedzy/embed_file_in_a_script)
+Moved to its own repo
 
 ## [jss_downloaders](https://github.com/thedzy/Python/tree/master/Scripts/jss_downloaders)
 A collecttion of scripts to download jamf data for offline searching
