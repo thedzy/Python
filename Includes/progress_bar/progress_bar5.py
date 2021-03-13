@@ -17,7 +17,7 @@ __license__     = 'GPL'
 __version__     = '5.0'
 __maintainer__  = 'thedzy'
 __email__       = 'thedzy@hotmail.com'
-__status__      = 'Developer'
+__status__      = 'Development'
 
 import tkinter as tk
 from tkinter import ttk
