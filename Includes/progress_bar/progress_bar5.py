@@ -11,149 +11,210 @@ Creates a GUI progress bar
 Customisable colour, title and header
 
 """
-__author__      = 'thedzy'
-__copyright__   = 'Copyright 2018, thedzy'
-__license__     = 'GPL'
-__version__     = '5.0'
-__maintainer__  = 'thedzy'
-__email__       = 'thedzy@hotmail.com'
-__status__      = 'Development'
+__author__ = 'thedzy'
+__copyright__ = 'Copyright 2018, thedzy'
+__license__ = 'GPL'
+__version__ = '5.0'
+__maintainer__ = 'thedzy'
+__email__ = 'thedzy@hotmail.com'
+__status__ = 'Development'
 
 import tkinter as tk
 from tkinter import ttk
 
 
 class ProgressBar(tk.Tk):
-	"""
-	Class to create a visual progresss bar
-	"""
+    """
+    Class to create a visual progress bar
+    """
 
-	def __init__(self, *args, **kwargs):
-		# Intiliaise as a tkinter class
-		tk.Tk.__init__(self, *args, **kwargs)
+    def __init__(self, max_size=100, title='', width=720, bar_colour='#00ff00', back_colour='#ffffff',
+                 determinate=True, *args, **kwargs):
+        # Initialise as a tkinter class
+        tk.Tk.__init__(self, *args, **kwargs)
 
-		# Initisalise the draw
-		self.createWindow()
+        # Initialise the variables
+        self.label_value = None
+        self.label = None
+        self.progress = None
 
-		# Refresh the window
-		self.__refresh()
+        # Initialise the draw
+        self.create_window()
+        self.geometry('{:d}x{:d}'.format(width, 0))
 
-		# Flag app as active, tracking a close
-		self.active = True
+        # Set options
+        self.set_title(title)
+        self.set_colour(bar_colour, back_colour)
+        self.set_determinate(determinate)
 
-		# Destroy the window is the app is closed
-		self.protocol('WM_DELETE_WINDOW', self.close)
+        # Initialise positions
+        self.set_max(max_size)
+        self.set_position(0)
 
-	def createWindow(self):
-		# Set min/max sizing for resizing
-		self.minsize(width=200, height=50)
-		self.maxsize(width=1600, height=50)
+        # Refresh the window
+        self.__refresh()
 
-		windowcolor = 'grey90'
-		self.configure(background=windowcolor)
+        # Flag app as active, tracking a close
+        self.active = True
 
-		# Set progress bar style
-		style = ttk.Style()
-		style.theme_use('default')
-		style.configure('black.Horizontal.TProgressbar', background='red')
+        # Destroy the window if the app is closed
+        self.protocol('WM_DELETE_WINDOW', self.close)
 
-		# Define Lable
-		self.labelValue = tk.StringVar(value='Loading...')
-		self.label = ttk.Label(self.master, text='xxxxxxxxxxx', justify='left', anchor='w', textvariable=self.labelValue, font=('Helvetica', 16), background=windowcolor)
-		self.label.pack(fill=tk.BOTH, expand=True, padx=5)
+    def create_window(self):
+        # Set min/max sizing for resizing
+        self.minsize(width=200, height=50)
+        self.maxsize(width=1600, height=50)
 
-		# Define Progress bar
-		self.progress = ttk.Progressbar(self, orient='horizontal', length=300, mode='determinate')
-		self.progress.pack(fill=tk.BOTH, expand=True)
+        window_color = 'grey90'
+        self.configure(background=window_color)
 
-		# Initialise positions
-		self.setMax(100)
-		self.setPosition(0)
+        # Set progress bar style
+        style = ttk.Style()
+        style.theme_use('default')
+        style.configure('black.Horizontal.TProgressbar', background='red')
 
-	def setTitle(self, title):
-		# Set title of Window and label
-		self.title(title)
+        # Define Label
+        self.label_value = tk.StringVar(value='Loading...')
+        self.label = ttk.Label(self.master, text='', justify='left', anchor='w', textvariable=self.label_value,
+                               font=('Helvetica', 16), background=window_color)
+        self.label.pack(fill=tk.BOTH, expand=True, padx=5)
 
-		self.__refresh()
+        # Define Progress bar
+        self.progress = ttk.Progressbar(self, orient='horizontal', length=300, mode='determinate')
+        self.progress.pack(fill=tk.BOTH, expand=True)
 
-	def setLabel(self, title):
-		# Set title of Window and label
-		self.labelValue.set(title)
+    def set_title(self, title):
+        """
+        Set title of Window title
+        :param title: (str) Text of the window label
+        :return: (void)
+        """
 
-		self.__refresh()
+        self.title(str(title))
 
-	def setPosition(self, position):
-		"""
-		Set Bar position value
-		:param position: Integer
-		"""
-		self.progress['value'] = position
+        self.__refresh()
 
-		self.__refresh()
+    def set_label(self, title):
+        """
+        Set title of Window label
+        :param title: (str) Text of the window label
+        :return: (void)
+        """
 
-	def getPosition(self):
-		"""
-		Get Position
-		:return: Interger
-		"""
-		return self.progress['value']
+        self.label_value.set(str(title))
 
-	def setIncrement(self, increment):
-		""" Increment the bar by a value
-		:param increment: integer
-		"""
-		self.progress.step(increment)
+        self.__refresh()
 
-		self.__refresh()
+    def set_position(self, position):
+        """
+        Set bar position value
+        :param position: (int) Position of the progress
+        """
 
-	def setMax(self, max):
-		"""
-		Set Bar Maximum value
-		:param max: Integer
-		"""
-		self.progress['maximum'] = max
+        self.progress['value'] = position
 
-		self.__refresh()
+        self.__refresh()
 
-	def setColour(self, barColour='black', backColour='grey'):
-		"""
-		Set the bar foreground and background
-		:param barColour: black', 'yellow', 'white', 'green', 'grey', 'red', 'blue', 'orange', 'grey45'
-		:param backColour: black', 'yellow', 'white', 'green', 'grey', 'red', 'blue', 'orange', 'grey45'
-		"""
-		style = ttk.Style()
-		style.theme_use('default')
-		style.configure('Horizontal.TProgressbar', background=barColour, troughcolor=backColour)
+    def get_position(self):
+        """
+        Get bar position value
+        :return: (int) Position of the progress
+        """
 
-		self.__refresh()
+        return self.progress['value']
 
-	def setDeterminante(self, bool=True):
-		"""
-		Toggle the style from determinate to indeterminate
-		:param bool: Bool, true=determinate
-		"""
-		style = ttk.Style()
-		style.theme_use('default')
-		if bool:
-			style.configure('Horizontal.TProgressbar', mode='determinate')
-		else:
-			style.configure('Horizontal.TProgressbar', mode='indeterminate')
+    def increment(self, increment):
+        """
+        Increment the bar by a value
+        :param increment: (int) Value to increment by
+        """
 
-		self.__refresh()
+        self.progress.step(increment)
 
-	def __refresh(self):
-		# Refresh window
-		self.update_idletasks()
-		self.update()
+        self.__refresh()
 
-	def close(self):
-		# Detroy the window and mark and inactive
-		self.destroy()
-		self.active = False
+    def set_max(self, value):
+        """
+        Set Bar Maximum value
+        :param value: (int) The maximum value of the progress bar
+        """
 
-	def isActive(self):
-		"""
-		Return whether the window is inactive to prevent errors in calling for updates
-		:return: bool
-		"""
-		return self.active
+        self.progress['maximum'] = value
+
+        self.__refresh()
+
+    def get_max(self):
+        """
+        Set Bar Maximum value
+        :return: (int) The maximum value of the progress bar
+        """
+
+        return self.progress['maximum']
+
+    def set_colour(self, bar_colour=None, back_colour=None):
+        """
+        Set the bar foreground and background
+        :param bar_colour: (string) hex, (string) named, (tuple)(int) 0-55 rgb, (tuple)(float) 0-1 rgb
+            Examples: 'black', 'yellow', 'white', 'green', 'grey', 'red', 'blue', 'orange', 'grey45'
+        :param back_colour: (string) hex, (string) named, (tuple)(int) 0-55 rgb, (tuple)(float) 0-1 rgb
+            Examples: 'black', 'yellow', 'white', 'green', 'grey', 'red', 'blue', 'orange', 'grey45'
+        """
+
+        style = ttk.Style()
+        style.theme_use('default')
+        new_bar_colour = style.lookup('Horizontal.TProgressbar', 'background')
+        new_back_colour = style.lookup('Horizontal.TProgressbar', 'troughcolor')
+
+        if bar_colour:
+            new_bar_colour = self.to_hex(bar_colour)
+
+        if back_colour:
+            new_back_colour = self.to_hex(back_colour)
+
+        style.configure('Horizontal.TProgressbar', background=new_bar_colour, troughcolor=new_back_colour)
+
+        self.__refresh()
+
+    @staticmethod
+    def to_hex(colour):
+        if colour[0] == '#' and len(colour) == 7:
+            return colour
+        elif all([isinstance(rgb, int) for rgb in colour]):
+            return '#{0:02x}{1:02x}{2:02x}'.format(colour[0], colour[1], colour[2])
+        elif all([isinstance(rgb, float) for rgb in colour]):
+            return '#{0:02x}{1:02x}{2:02x}'.format(int(colour[0] * 255), int(colour[1] * 255), int(colour[2] * 255))
+        else:
+            return colour
+
+    def set_determinate(self, determinate=True):
+        """
+        Toggle the style from determinate to indeterminate
+        :param determinate: (bool) Is determinate
+        """
+
+        if determinate:
+            self.progress['mode'] = 'determinate'
+            print(self.progress['mode'])
+            print('wtf')
+        else:
+            self.progress['mode'] = 'indeterminate'
+            print('no')
+
+        self.__refresh()
+
+    def __refresh(self):
+        # Refresh window
+        self.update_idletasks()
+        self.update()
+
+    def close(self):
+        # Destroy the window and mark and inactive
+        self.destroy()
+        self.active = False
+
+    def is_active(self):
+        """
+        Return whether the window is inactive to prevent errors in calling for updates
+        :return: (bool) Is active
+        """
+        return self.active
