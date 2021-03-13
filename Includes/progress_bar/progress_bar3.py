@@ -13,34 +13,50 @@ Customisable colour, title and header
 Shows percentage.
 
 """
-__author__      = 'thedzy'
-__copyright__   = 'Copyright 2018, thedzy'
-__license__     = 'GPL'
-__version__     = '3.0'
-__maintainer__  = 'thedzy'
-__email__       = 'thedzy@hotmail.com'
-__status__      = 'Development'
+__author__ = 'thedzy'
+__copyright__ = 'Copyright 2018, thedzy'
+__license__ = 'GPL'
+__version__ = '3.1'
+__maintainer__ = 'thedzy'
+__email__ = 'thedzy@hotmail.com'
+__status__ = 'Development'
 
 import os
+import time
 
 
-def progressbar(position, max=100, title='Loading', rgb=[1.0, 1.0, 1.0]):
+def progressbar(position, max_size=100, title='Loading', rgb=[1.0, 0.0, 0.0]):
     """
     Draw a progress bar to the width of the screen
 
-    :param position: Position relative to mac value
-    :param max: Max position
-    :param title: Title at the end of the progress
-    :param rgb: The colour of the bar in decimal format of [0,0,0] - [1,1,1]
-    :return: void
+    :param position: (int) Position relative to max value
+    :param max_size: (int) Max position
+    :param title: (str) Title at the beginning of the progress
+    :param rgb: (tuple)float) The colour of the bar in decimal format of [0,0,0] - [1,1,1]
+    :return: (void)
     """
 
     colour = (16 + (36 * rgb[0]) + (6 * rgb[1]) + rgb[2])
 
-    rows, columns = os.popen('stty size', 'r').read().split()
-    prog_width = int(columns) - 10 - len(title)
-    prog_unit = (prog_width / max)
-    prog_filled = int(prog_unit * position)
-    prog_empty = prog_width - prog_filled
+    try:
+        columns, _ = os.get_terminal_size()
+    except OSError:
+        columns = 100
 
-    print(' [\033[38;5;%dm%s%s\033[38;5;15m] %3d%%%s' % (colour, '▉' * prog_filled, ' ' * prog_empty, position/max*100, title), end='\r', flush=True)
+    progress_width = columns - 10 - len(title)
+    progress_filled = int(position * progress_width / max_size)
+    progress_empty = progress_width - progress_filled
+
+    print('{title:s} [\033[38;5;{colour:0.0f}m{fill:s}{empty:s}\033[38;5;15m] {percent:4.1f}%'.format(
+        colour=colour,
+        fill='▉' * progress_filled,
+        empty=' ' * progress_empty,
+        percent=(position / max_size * 100),
+        title=title
+    ), end='\r', flush=True)
+
+
+max_range = 100
+for index in range(max_range + 1):
+    time.sleep(5 / max_range)
+    progressbar(index)
