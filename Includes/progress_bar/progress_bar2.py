@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -8,40 +8,43 @@ Date:	2018-09-24
 Platform: MacOS
 
 Description:
-Creates a text based progress bar
+Creates a dead simple inline text based progress bar
 Customisable title
 
 """
-__author__      = 'thedzy'
-__copyright__   = 'Copyright 2018, thedzy'
-__license__     = 'GPL'
-__version__     = '2.0'
-__maintainer__  = 'thedzy'
-__email__       = 'thedzy@hotmail.com'
-__status__      = 'Development'
+__author__ = 'thedzy'
+__copyright__ = 'Copyright 2018, thedzy'
+__license__ = 'GPL'
+__version__ = '2.1'
+__maintainer__ = 'thedzy'
+__email__ = 'thedzy@hotmail.com'
+__status__ = 'Development'
 
 import os
 import sys
 import time
 
 title = 'Loading'
-prog_max = 33
+progress_max = 33
 
-rows, columns = os.popen('stty size', 'r').read().split()
-prog_width = int(columns) - 3 - len(title)
-prog_width = (prog_max * int(prog_width/prog_max))
+try:
+    columns, _ = os.get_terminal_size()
+except OSError:
+    columns = 100
+progress_width = int(columns) - 3 - len(title)
+progress_width = (progress_max * int(progress_width / progress_max))
 
-# setup toolbar
-sys.stdout.write('[%s] %s' % (' ' * prog_width, title))
+# Setup toolbar
+sys.stdout.write('[{}] {}'.format(' ' * progress_width, title))
 sys.stdout.flush()
-# return to start of line, after '['
-sys.stdout.write('\b' * (prog_width + len(title) + 2))
+# Return to start of line, after '['
+sys.stdout.write('\b' * (progress_width + len(title) + 2))
 
-for i in xrange(prog_max):
-    # do real work here
+for i in range(progress_max):
+    # Do real work here
     time.sleep(0.05)
-    # update the bar
-    sys.stdout.write('%s' % ('▉' * int(prog_width/prog_max)))
+    # Update the bar
+    sys.stdout.write('{}'.format('▉' * (progress_width // progress_max)))
     sys.stdout.flush()
 
 sys.stdout.write('\n')
