@@ -4,7 +4,7 @@
 Script:	progress_bar5b.py
 Date:	2018-09-24
 
-Platform: MacOS
+Platform: MacOS, Windows
 
 Description:
 Creates a GUI progress bar
@@ -18,7 +18,7 @@ __license__     = 'GPL'
 __version__     = '5.0b'
 __maintainer__  = 'thedzy'
 __email__       = 'thedzy@hotmail.com'
-__status__      = 'Developer'
+__status__      = 'Development'
 
 import time
 import tkinter as tk
