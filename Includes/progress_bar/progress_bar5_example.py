@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from progress_bar5 import *
+import time
 
 
 def main():
@@ -16,10 +17,9 @@ def main():
 		time.sleep(0.05)  # do real work here
 		if app.isActive():
 			# Alt: Set the value to progressCount
-			#app.setPosition(progressCount)
+			app.setPosition(progressCount)
 			# Incerement by 1
 			app.setIncrement(1)
-		print(progressCount)
 
 
 if __name__ == '__main__':
