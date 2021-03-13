@@ -18,7 +18,7 @@ __license__     = 'GPL'
 __version__     = '4.0'
 __maintainer__  = 'thedzy'
 __email__       = 'thedzy@hotmail.com'
-__status__      = 'Developer'
+__status__      = 'Development'
 
 import os
 
