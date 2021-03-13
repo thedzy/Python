@@ -52,7 +52,7 @@ def main():
         # Display messages
         app.add_output(lines[progress_count])
 
-    app.add_output('Done', reset=True)
+    app.add_output('Complete!', reset=True)
     time.sleep(1.0)
 
 
