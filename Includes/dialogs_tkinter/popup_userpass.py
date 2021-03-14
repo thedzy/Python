@@ -4,7 +4,7 @@
 Script:	popup_userpass.py
 Date:	2018-09-30
 
-Platform: MacOS
+Platform: MacOS/Windows
 
 Description:
 Creates a GUI input dialog for username and password

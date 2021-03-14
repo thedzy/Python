@@ -4,7 +4,7 @@
 Script:	popup_list.py
 Date:	2018-09-30
 
-Platform: MacOS
+Platform: MacOS/Windows
 
 Description:
 Creates a GUI list selection with only 1 selection

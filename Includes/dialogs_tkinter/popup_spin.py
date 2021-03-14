@@ -4,7 +4,7 @@
 Script:	popup_spin.py
 Date:	2018-09-30
 
-Platform: MacOS
+Platform: MacOS/Windows
 
 Description:
 Creates a GUI spinner to select a number
