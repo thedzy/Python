@@ -10,112 +10,146 @@ Description:
 Creates a GUI input dialog for username and password
 
 """
-__author__      = 'thedzy'
-__copyright__   = 'Copyright 2018, thedzy'
-__license__     = 'GPL'
-__version__     = '1.0'
-__maintainer__  = 'thedzy'
-__email__       = 'thedzy@hotmail.com'
-__status__      = 'Developer'
+__author__ = 'thedzy'
+__copyright__ = 'Copyright 2018, thedzy'
+__license__ = 'GPL'
+__version__ = '1.0'
+__maintainer__ = 'thedzy'
+__email__ = 'thedzy@hotmail.com'
+__status__ = 'Development'
 
 import os
-import sys
 import tkinter as tk
 from tkinter import ttk
 
+try:
+    from Cocoa import NSRunningApplication, NSApplicationActivateIgnoringOtherApps
+except ImportError as err:
+    print('Install pyobjc to bring to front')
 
-class popupUserPass(tk.Tk):
-	"""
-	Class to create a vusername password dialog
-	"""
 
-	def __init__(self, *args, **kwargs):
-		# Intiliaise as a tkinter class
-		tk.Tk.__init__(self, *args, **kwargs)
+class PopupUserPass(tk.Tk):
+    """
+    Class to create a username password dialog
+    """
 
-		# Initisalise the draw
-		self.createWindow()
+    def __init__(self, title='Login', username='', *args, **kwargs):
+        # Initialise as a tkinter class
+        tk.Tk.__init__(self, *args, **kwargs)
 
-		# Button Handlers
-		self.protocol('WM_DELETE_WINDOW', self.close)
-		self.bind('<Return>', lambda event: self.buttonOK())
+        # Initialise the draw
+        self.__create_window()
 
-	def createWindow(self):
+        # Default exit code
+        self.exit_code = False
 
-		# Upper center window
-		x = (self.winfo_screenwidth() / 2) - 100
-		y = (self.winfo_screenheight() / 3) - 45
-		self.geometry('+%d+%d' % (x, y))
+        # Setup window
+        self.set_title(title)
+        self.set_username(username)
 
-		# Set min/max sizing for resizing
-		self.minsize(width=200, height=105)
-		self.maxsize(width=1600, height=105)
+        # Button Handlers
+        self.protocol('WM_DELETE_WINDOW', self.__close)
+        self.bind('<Return>', lambda event: self.__event_button_ok())
 
-		windowcolor = 'grey90'
-		self.configure(background=windowcolor)
+    def __create_window(self):
 
-		# Frame 1
-		self.frame1 = tk.Frame(self, background=windowcolor)
-		self.userlabel = ttk.Label(self.frame1, text='Username', justify='left', anchor='w', font=('Helvetica', 16), width=10, background=windowcolor)
-		self.userlabel.pack(side='left')
+        # Upper center window
+        x = (self.winfo_screenwidth() / 2) - 100
+        y = (self.winfo_screenheight() / 3) - 45
+        self.geometry('+%d+%d' % (x, y))
 
-		self.username = tk.StringVar()  # Password variable
-		self.userfield = tk.Entry(self.frame1, textvariable=self.username)
-		self.userfield.pack(fill=tk.X, expand=True, side=tk.RIGHT)
+        # Set min/max sizing for resizing
+        self.minsize(width=200, height=105)
+        self.maxsize(width=1600, height=105)
 
-		self.frame1.pack(fill=tk.X, expand=True, padx=5, pady=5)
+        window_colour = 'grey90'
+        self.configure(background=window_colour)
 
-		# Frame 2
-		self.frame2 = tk.Frame(self, background=windowcolor)
-		self.passlabel = ttk.Label(self.frame2, text='Password', justify='left', anchor='w', font=('Helvetica', 16), width=10, background=windowcolor)
-		self.passlabel.pack(side='left')
+        # Frame 1
+        self.__frame1 = tk.Frame(self, background=window_colour)
+        self.__user_label = ttk.Label(self.__frame1, text='Username', justify='left', anchor='w',
+                                      font=('Helvetica', 16), width=10, background=window_colour)
+        self.__user_label.pack(side='left')
 
-		self.password = tk.StringVar()  # Password variable
-		self.passfield = tk.Entry(self.frame2, textvariable=self.password, show='*')
-		self.passfield.pack(fill=tk.X, expand=True, side=tk.RIGHT)
+        self.__username = tk.StringVar()  # Password variable
+        self.__user_field = tk.Entry(self.__frame1, textvariable=self.__username)
+        self.__user_field.pack(fill=tk.X, expand=True, side=tk.RIGHT)
 
-		self.frame2.pack(fill=tk.X, expand=True, padx=5)
+        self.__frame1.pack(fill=tk.X, expand=True, padx=5, pady=5)
 
-		# Frame 3
-		self.frame3 = tk.Frame(self, background=windowcolor)
-		self.button2 = tk.Button(self.frame3, text='Cancel', justify='center', anchor='ne', highlightbackground=windowcolor, command=self.buttonCancel)
-		self.button2.pack(side=tk.RIGHT)
+        # Frame 2
+        self.__frame2 = tk.Frame(self, background=window_colour)
+        self.__pass_label = ttk.Label(self.__frame2, text='Password', justify='left', anchor='w',
+                                      font=('Helvetica', 16), width=10, background=window_colour)
+        self.__pass_label.pack(side='left')
 
-		self.button1 = tk.Button(self.frame3, text='OK', justify='center', anchor='ne', highlightbackground=windowcolor, command=self.buttonOK)
-		self.button1.pack(side=tk.RIGHT)
-		self.frame3.pack(fill=tk.X, expand=True, padx=5, pady=5)
+        self.__password = tk.StringVar()  # Password variable
+        self.__pass_field = tk.Entry(self.__frame2, textvariable=self.__password, show='*')
+        self.__pass_field.pack(fill=tk.X, expand=True, side=tk.RIGHT)
 
-		# Try to set window focus
-		try:
-			from Cocoa import NSRunningApplication, NSApplicationActivateIgnoringOtherApps
-		except ImportError as err:
-			print(err)
-			print('pip3 install pyobjc')
-			sys.exit()
-		app = NSRunningApplication.runningApplicationWithProcessIdentifier_(os.getpid())
-		app.activateWithOptions_(NSApplicationActivateIgnoringOtherApps)
+        self.__frame2.pack(fill=tk.X, expand=True, padx=5)
 
-	def buttonOK(self):
-		self.exitcode = True
-		self.close()
+        # Frame 3
+        self.__frame3 = tk.Frame(self, background=window_colour)
+        self.__button_cancel = tk.Button(self.__frame3, text='Cancel', justify='center', anchor='ne',
+                                         highlightbackground=window_colour, command=self.__event_button_cancel)
+        self.__button_cancel.pack(side=tk.RIGHT)
 
-	def buttonCancel(self):
-		self.username.set('')
-		self.password.set('')
-		self.exitcode = False
-		self.close()
+        self.__button_ok = tk.Button(self.__frame3, text='OK', justify='center', anchor='ne',
+                                     highlightbackground=window_colour, command=self.__event_button_ok)
+        self.__button_ok.pack(side=tk.RIGHT)
+        self.__frame3.pack(fill=tk.X, expand=True, padx=5, pady=5)
 
-	def setTitle(self, title):
-		# Set title of Window and label
-		self.title(title)
+        # Try to set window focus
+        if 'NSRunningApplication' in dir():
+            app = NSRunningApplication.runningApplicationWithProcessIdentifier_(os.getpid())
+            app.activateWithOptions_(NSApplicationActivateIgnoringOtherApps)
 
-	def close(self):
-		# Detroy the window and mark and inactive
-		self.destroy()
+    def __event_button_ok(self):
+        self.exit_code = True
+        self.__close()
 
-	def getCredentials(self, title='Login'):
-		self.setTitle(title)
-		self.wm_deiconify()
-		self.userfield.focus_force()
-		self.wait_window()
-		return self.username.get(), self.password.get(), self.exitcode
+    def __event_button_cancel(self):
+        self.__username.set('')
+        self.__password.set('')
+        self.exit_code = False
+        self.__close()
+
+    def __close(self):
+        # Destroy the window and mark and inactive
+        self.destroy()
+
+    def set_title(self, title):
+        """
+        Set title of Window and label
+        :param title: (str) Title of the window
+        :return: (void)
+        """
+        self.title(title)
+
+    def set_username(self, username):
+        """
+        Set the default username and move focus to password
+        :param username: (str) Username
+        :return: (void)
+        """
+        self.__username.set(username)
+        self.__pass_field.focus_force()
+
+    def get_credentials(self, title=None, username=None):
+        """
+        Bring up the dialog
+        :param title: (str) Title of the window
+        :param username: (str) The default username
+        :return: (any) Value selected or entered
+        """
+        # Setup window
+        if title:
+            self.set_title(title)
+        if username:
+            self.set_username(username)
+
+        self.wm_deiconify()
+        self.__user_field.focus_force()
+        self.wait_window()
+        return self.__username.get(), self.__password.get(), self.exit_code

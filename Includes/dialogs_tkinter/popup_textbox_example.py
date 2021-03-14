@@ -5,13 +5,13 @@ from popup_textbox import *
 
 
 def main():
-	answer, exitcode = popupInput().getInput('Essay', 'Please describe yourself')
+    answer, exit_code = PopupText('Essay', 'Please describe yourself', 'Vitals:\nName: \nAddress:\n').get_input()
 
-	if exitcode:
-		print('Text: %s\nExit Code: %d\n' % (answer, exitcode))
-	else:
-		print('Exited')
+    if exit_code:
+        print('Text: %s\nExit Code: %d\n' % (answer, exit_code))
+    else:
+        print('Exited')
 
 
 if __name__ == '__main__':
-	main()
+    main()

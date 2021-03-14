@@ -5,13 +5,13 @@ from popup_spin import *
 
 
 def main():
-	quantity, exitcode = popupInput().getInput('Quantity', 'How many do you need?', 500)
+    quantity, exit_code = PopupSpin('Quantity', 'How many do you need?', 10, 20).get_input()
 
-	if exitcode:
-		print('Quantity: %s\nExit Code: %d\n' % (quantity, exitcode))
-	else:
-		print('Exited')
+    if exit_code:
+        print('Quantity: %s\nExit Code: %d\n' % (quantity, exit_code))
+    else:
+        print('Exited')
 
 
 if __name__ == '__main__':
-	main()
+    main()
