@@ -38,7 +38,7 @@ else:
 	unhandled_threads = [t for t in threads if not t.isHandled()]
 	while len(unhandled_threads) != 0:
 		# Loop through processed threads
-		for unactive_thread in [a for a in unhandled_threads if not a.isAlive()]:
+		for unactive_thread in [a for a in unhandled_threads if not a.is_alive()]:
 			print(unactive_thread.getValue())
 			total_time += unactive_thread.getTime()
 		unhandled_threads = [t for t in threads if not t.isHandled()]
