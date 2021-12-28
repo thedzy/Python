@@ -8,18 +8,21 @@ import glob
 
 def main():
     # Speed of wait
-    seconds, loops = 3, 30
+    seconds = 5
 
-    # Run a few wait
+    # Run a few waits
+    loops = 200
     for index in range(loops):
         # Do real work here
         wait_bar(index,
                  title=f'Time left: {seconds - (index * (seconds / loops)):0.0f}',
                  rgb=(1, 0, 1),
-                 columns=20,
-                 pattern='▁▂▃▄▅▆▇█▇▆▅▄▃▂')
+                 columns=14,
+                 pattern='▁▂▂▃▄▅▆▇▇█▇▇▆▅▄▃▂▂')
         time.sleep(seconds / loops)
+    print(' ' * 50, end='\r')
 
+    loops = 30
     for index in range(loops):
         # Do real work here
         wait_bar(index,
@@ -28,7 +31,9 @@ def main():
                  columns=20,
                  pattern='  ▜▙ ')
         time.sleep(seconds / loops)
+    print(' ' * 50, end='\r')
 
+    loops = 30
     for index in range(loops):
         # Do real work here
         wait_bar(index,
@@ -37,14 +42,15 @@ def main():
                  pattern='🚙🚗🚛🏎🛻🚑🚕🚚🚒',
                  left2right=False)
         time.sleep(seconds / loops)
-    print()
+    print(' ' * 50, end='\r')
 
+    loops = 100
     for index in range(loops):
         # Do real work here
         wait_bar(index,
                  rgb=(1, 1, 1),
                  columns=15,
-                 pattern='→')
+                 pattern='>>-----')
         time.sleep(seconds / loops)
     print()
 
