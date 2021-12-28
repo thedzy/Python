@@ -16,7 +16,7 @@ Shows percentage.
 __author__ = 'thedzy'
 __copyright__ = 'Copyright 2018, thedzy'
 __license__ = 'GPL'
-__version__ = '3.1'
+__version__ = '3.1.5'
 __maintainer__ = 'thedzy'
 __email__ = 'thedzy@hotmail.com'
 __status__ = 'Development'
@@ -36,7 +36,7 @@ def progressbar(position, max_size=100, title='Loading', rgb=[1.0, 0.0, 0.0]):
     :return: (void)
     """
 
-    colour = (16 + (36 * rgb[0]) + (6 * rgb[1]) + rgb[2])
+    colour = get_colour(*rgb)
 
     try:
         columns, _ = os.get_terminal_size()
@@ -56,7 +56,19 @@ def progressbar(position, max_size=100, title='Loading', rgb=[1.0, 0.0, 0.0]):
     ), end='\r', flush=True)
 
 
-max_range = 100
-for index in range(max_range + 1):
-    time.sleep(5 / max_range)
-    progressbar(index)
+def get_colour(red, green, blue):
+    """
+    Calculate ansi code for rgb
+    :param red: (float) 0-1 Red
+    :param green: (float) 0-1 Green
+    :param blue: (float) 0-1 Blue
+    :return: (int) 0-255 Ansi code
+    """
+    if int(red * 5) == int(green * 5) == int(blue * 5):
+        # If colour is shade of grey
+        ansi_code = 232 + (int(red * 23) + int(green * 23) + int(blue * 23)) // 3
+    else:
+        # If colour
+        ansi_code = (16 + int(36 * red * 5) + int(6 * green * 5) + int(blue * 5))
+
+    return ansi_code
