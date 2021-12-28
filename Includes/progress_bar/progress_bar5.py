@@ -61,6 +61,10 @@ class ProgressBar(tk.Tk):
         self.protocol('WM_DELETE_WINDOW', self.close)
 
     def create_window(self):
+        """
+        Create the window
+        :return:
+        """
         # Set min/max sizing for resizing
         self.minsize(width=200, height=50)
         self.maxsize(width=1600, height=50)
