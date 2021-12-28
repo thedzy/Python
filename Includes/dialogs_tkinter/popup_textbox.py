@@ -4,7 +4,7 @@
 Script:	popup_textbox.py
 Date:	2018-09-30
 
-Platform: MacOS
+Platform: MacOS/Windows
 
 Description:
 Creates a GUI input dialog for multi-line text
