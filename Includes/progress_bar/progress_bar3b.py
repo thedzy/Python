@@ -75,10 +75,12 @@ def progress_bar(position, max_size=100, title='Loading...', rgb=(1.0, 1.0, 1.0)
 def wait_bar(offset, title='Loading...', rgb=(1.0, 1.0, 1.0), columns=None, pattern=' ◢◤ ', left2right=True):
     """
     Draw a progress bar to the width of the screen
-    :param position: (int) Position offset
+    :param offset: (int) Position offset
     :param title: (str) Title at the beginning of the progress
     :param rgb: (tuple)float) The colour of the bar in decimal format of [0,0,0] - [1,1,1]
     :param columns: (int) Width of the progressbar or None for the size of the window
+    :param pattern: (str) The characters for the wait
+    :param left2right: (bool) Movement for left r=to right
     :return: (void)
     """
 
