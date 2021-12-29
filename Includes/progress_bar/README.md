@@ -2,7 +2,7 @@
 Samples of Python code
 
 ## progress_bar2.py
-Simple command line progress bar. Includes title.  No impcludes necesary, copy, paste and use.
+Simple command line progress bar. Includes title.  Copy, paste and use.
 
 ![Progress Bar 2](img/progress_bar_2.gif)
 
