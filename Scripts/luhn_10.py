@@ -34,7 +34,7 @@ def main():
     numbers = [int(number) for number in re.findall(r'[0-9]', ''.join(options.number))]
 
     if options.check:
-        logging.info('Performing check')
+        logging.info(f'Performing check of {" ".join(options.number)}')
         check_sum = numbers[-1]
         numbers = numbers[:-1]
         logging.debug(f'Checksum {check_sum}')
@@ -60,7 +60,6 @@ def main():
     logging.debug(f'Total Sum: {sum([even_sum, odd_sum])}')
     luhn_sum = (10 - (even_sum + odd_sum)) % 10
     logging.debug(f'Check sum: 10 - {even_sum + odd_sum} % 10 = {luhn_sum}')
-
 
     # Perform the check
     if options.check:
@@ -116,7 +115,7 @@ if __name__ == '__main__':
             return format_class
 
 
-    parser = argparse.ArgumentParser(description='lun_10.py',
+    parser = argparse.ArgumentParser(description=__description__,
                                      formatter_class=parser_formatter(argparse.RawTextHelpFormatter,
                                                                       indent_increment=4, max_help_position=12,
                                                                       width=160))
@@ -129,7 +128,7 @@ if __name__ == '__main__':
     """
     Options
     """
-    parser.add_argument('--check',
+    parser.add_argument('-c', '--check',
                         action='store_true', dest='check', default=False,
                         help='perform a check on the number and return 0 on success')
 
