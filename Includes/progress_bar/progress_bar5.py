@@ -199,10 +199,8 @@ class ProgressBar(tk.Tk):
         if determinate:
             self.progress['mode'] = 'determinate'
             print(self.progress['mode'])
-            print('wtf')
         else:
             self.progress['mode'] = 'indeterminate'
-            print('no')
 
         self.__refresh()
 
