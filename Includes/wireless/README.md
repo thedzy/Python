@@ -1,8 +1,8 @@
 # wireless.py
-Function for easy read and setting of wireless.
+Function for easy read and setting of wireless on macOS.
 
 # Functions
-## 	def find_Networks(self, ssid=None):
+## find_Networks(self, ssid=None):
 Find a network and return the network object if it exists
 ## find_Network(self, ssid=None):
 Find a network and return True if it exists
@@ -10,7 +10,7 @@ Find a network and return True if it exists
 The networks currently in the scan cache for the WLAN interface.
 ## get_activePHYMode(self):
 Dynamically queries the interface for the current active PHY mode. Returns kCWPHYModeNone in the case of an error, or if the interface is not participating in a network.
-## def get_aggregateNoise(self):
+## get_aggregateNoise(self):
 Dynamically queries the interface for the current aggregate noise measurement. Returns 0 in the case of an error, or if the interface is not participating in a network.
 ## get_bssid(self):
 Dynamically queries the interface for the current BSSID. Returns a UTF-8 string formatted as <00:00:00:00:00:00>, or nil in the case of an error, or if the interface is not participating in a network.
@@ -44,11 +44,11 @@ Returns a NSString representing the supported WLAN BSD interface name on the cur
 Dynamically queries the interface for the current aggregate noise measurement. Returns 0 in the case of an error, or if the interface is not participating in a network.
 ## get_networkInterfaceAvailable(self):
 Dynamically queries the interface for availability
-## def get_powerOn(self):
+## get_powerOn(self):
 Dynamically queries the interface for the current power state. Returns NO in the case of an error.
 ## get_rssiValue(self):
 Dynamically queries the interface for the current aggregate RSSI measurement. Returns 0 in the case of an error, or if the interface is not participating in a network.
-## def get_security(self):
+## get_security(self):
 Dynamically queries the interface for the security mode. Returns kCWSecurityUnknown in the case of an error, or if the interface is not participating in a network.
 ## get_serviceActive(self):
 The interface has its corresponding network service enabled. Returns NO in the case of an error.
@@ -58,7 +58,7 @@ Dynamically queries the interface for the current SSID. Returns nil in the case 
 Dynamically queries the interface for the supported channels. Returns an array of CWChannel objects, or nil<i/> in the case of an error.
 ## get_transmitPower(self):
 Dynamically queries the interface for the current transmit power. Returns 0 in the case of an error.
-## def get_transmitRate(self):
+## get_transmitRate(self):
 Dynamically queries the interface for the current transmit rate. Returns 0 in the case of an error, or if the interface is not participating in a network.
 ## get_wlanChannel(self):
 Dynamically queries the interface for the current channel. Returns nil in the case of an error, or if the interface is not participating in a network.
@@ -71,11 +71,11 @@ Returns an immutable configuration for an AirPort WLAN interface.
 The order of this array corresponds to the order in which the the CWNetworkProfile objects participate in the auto-join process.
 ## get_eapolClient_eapolClientControlMode(self):
 Dynamically queries the EAP for the current control mode. Returns nil in the case of an error.
-## def get_eapolClient_eapolClientStatus(self):
+## get_eapolClient_eapolClientStatus(self):
 ## get_eapolClient_eapolClientUUID(self):
 ## get_eapolClient_eapolClientControlState(self):
 Dynamically queries the EAP for the current control state. Returns nil in the case of an error.
-## def get_eapolClient_eapolClientSupplicantState(self):
+## get_eapolClient_eapolClientSupplicantState(self):
 
 ---
 
