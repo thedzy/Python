@@ -1,87 +1,104 @@
 #!/usr/bin/env python3
 """
 Script:	lun_10.py
-Date:	2020-08-08	
+Date:	2021-12-28
 
 Platform: macOS/Windows/Linux
 
 Description:
-AKA Mod 10 or just Luhn.
+AKA Mod 10 or just Luhn10.
 
 """
 __author__ = 'thedzy'
-__copyright__ = 'Copyright 2020, thedzy'
+__copyright__ = 'Copyright 2021, thedzy'
 __license__ = 'GPL'
-__version__ = '1.0'
+__version__ = '2.0'
 __maintainer__ = 'thedzy'
 __email__ = 'thedzy@hotmail.com'
 __status__ = 'Development'
+__description__ = """
+    Calculate or validate a luhn10 number
+    Return checksum on calculate
+    Return 0 on successful check
+    """
 
 import argparse
+import logging
 import re
 
 
-def main(number, check, debug):
+def main():
+    logging.basicConfig(format='{message}', level=options.debug, style='{')
+
     # Split numbers into an array
-    numbers = re.findall(r'[0-9]', ''.join(number))
+    numbers = [int(number) for number in re.findall(r'[0-9]', ''.join(options.number))]
 
-    if check:
-        original = numbers
+    if options.check:
+        logging.info('Performing check')
+        check_sum = numbers[-1]
         numbers = numbers[:-1]
+        logging.debug(f'Checksum {check_sum}')
 
-    # Calculate from right to left
-    numbers.reverse()
+    logging.debug(f'Numbers: {numbers}')
 
-    if debug:
-        print(numbers)
+    # Determine parity
+    even = len(numbers) % 2
+    odd = (even + 1) % 2
 
-    # Calculate sum of numbers
-    luhn_sum = 0
-    for index in range(len(numbers)):
-        digit = int(numbers[index])
-        if bool(index % 2):
-            luhn_sum += digit
-            if debug:
-                print('{} -> {}'.format(numbers[index], digit))
+    # Sum the single digits
+    logging.debug(f'Single Sums: {numbers[even::2]}')
+    even_sum = sum(numbers[even::2])
+    logging.debug(f'Summed: {even_sum}')
+
+    # Sum the digits that are to be doubled
+    logging.debug(f'Double Sums: {numbers[odd::2]}')
+    logging.debug(f'Double Sums: {[int(char) for number in numbers[odd::2] for char in str(number * 2)]}')
+    odd_sum = sum([int(char) for number in numbers[odd::2] for char in str(number * 2)])
+    logging.debug(f'Summed: {odd_sum}')
+
+    # Sum the number and mod 10
+    logging.debug(f'Total Sum: {sum([even_sum, odd_sum])}')
+    luhn_sum = (10 - (even_sum + odd_sum)) % 10
+    logging.debug(f'Check sum: 10 - {even_sum + odd_sum} % 10 = {luhn_sum}')
+
+
+    # Perform the check
+    if options.check:
+        if luhn_sum == check_sum:
+            logging.info('Passed')
+            return 0
         else:
-            luhn_double = digit * 2 if digit * 2 < 10 else digit * 2 - 9
-            luhn_sum += luhn_double
-            if debug:
-                print('{} -> {}'.format(numbers[index], luhn_double))
-
-    if debug:
-        print('Sum:     ', luhn_sum)
-        print('Sum * 9: ', luhn_sum * 9)
-
-    # Calculate check sum
-    luhn_check_sum = (luhn_sum * 9) % 10
-
-    # Restore order
-    numbers.reverse()
-
-    # Print final number digit groups
-    split_range = 1
-    for integer in range(int(len(numbers)/2), 0, -1):
-        if (len(numbers) + 1) % integer == 0:
-            split_range = integer
-            break
-    pattern = re.compile('[0-9]{{1,{0}}}'.format(split_range))
-    numbers_final = pattern.findall(''.join(numbers) + str(luhn_check_sum))
-
-    print('The number: {} has a check sum of {}'.format(' '.join(numbers), luhn_check_sum))
-    print('The full number is:\n{}'.format(' '.join(numbers_final)))
-
-    if check:
-        if debug:
-            print('Original:  ', ''.join(original), original)
-            print('Calculated:', ''.join(numbers_final), numbers_final)
-        if ''.join(original) != ''.join(numbers_final):
-            print('Invalid')
+            logging.info('Failed')
             return 1
-        else:
-            print('Valid')
+    else:
+        numbers.append(luhn_sum)
+        logging.info(group_numbers(numbers))
+        return luhn_sum
 
-    return 0
+
+def group_numbers(numbers, dividers=[7, 5, 4, 3, 2]):
+    """
+    Group numbers into the largest divider
+    :param numbers: (list)(int) Numbers
+    :param dividers: (list)(int) Numbers to try and group into
+    :return: (str) Grouped numbers
+    """
+    length = len(numbers)
+    dividers.append(length)
+
+    # Find the first group to match the size
+    for divider in dividers:
+        if length % divider == 0:
+            size = divider
+            break
+
+    # Group numbers
+    groups = []
+    for index in range(0, length, size):
+        section_set = [str(number) for number in numbers[index:index + size]]
+        groups.append(''.join(section_set))
+
+    return ' '.join(groups)
 
 
 if __name__ == '__main__':
@@ -114,12 +131,12 @@ if __name__ == '__main__':
     """
     parser.add_argument('--check',
                         action='store_true', dest='check', default=False,
-                        help='Perform a check instead of a calculations')
+                        help='perform a check on the number and return 0 on success')
 
-    parser.add_argument('--debug',
-                        action='store_true', dest='debug', default=False,
+    parser.add_argument('--debug', const=10, default=20,
+                        action='store_const', dest='debug',
                         help=argparse.SUPPRESS)
 
     options = parser.parse_args()
 
-    exit(main(options.number, options.check, options.debug))
+    exit(main())
