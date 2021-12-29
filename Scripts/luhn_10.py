@@ -6,7 +6,7 @@ Date:	2021-12-28
 Platform: macOS/Windows/Linux
 
 Description:
-AKA Mod 10 or just Luhn10.
+AKA Mod 10 or just Luhn algorithm.
 
 """
 __author__ = 'thedzy'
@@ -41,25 +41,19 @@ def main():
 
     logging.debug(f'Numbers: {numbers}')
 
-    # Determine parity
-    even = len(numbers) % 2
-    odd = (even + 1) % 2
-
     # Sum the single digits
-    logging.debug(f'Single Sums: {numbers[even::2]}')
-    even_sum = sum(numbers[even::2])
-    logging.debug(f'Summed: {even_sum}')
+    logging.debug(f'Single Numbers: {numbers[-2::-2]}')
+    even_sum = sum(numbers[-2::-2])
 
     # Sum the digits that are to be doubled
-    logging.debug(f'Double Sums: {numbers[odd::2]}')
-    logging.debug(f'Double Sums: {[int(char) for number in numbers[odd::2] for char in str(number * 2)]}')
-    odd_sum = sum([int(char) for number in numbers[odd::2] for char in str(number * 2)])
-    logging.debug(f'Summed: {odd_sum}')
+    logging.debug(f'Double Numbers: {numbers[::-2]}')
+    logging.debug(f'Double Sums: {[int(char) for number in numbers[::-2] for char in str(number * 2)]}')
+    odd_sum = sum([int(char) for number in numbers[::-2] for char in str(number * 2)])
 
     # Sum the number and mod 10
-    logging.debug(f'Total Sum: {sum([even_sum, odd_sum])}')
+    logging.debug(f'Total Sum: {even_sum:3} + {odd_sum:3} = {sum([even_sum, odd_sum]):3}')
     luhn_sum = (10 - (even_sum + odd_sum)) % 10
-    logging.debug(f'Check sum: 10 - {even_sum + odd_sum} % 10 = {luhn_sum}')
+    logging.debug(f'Check sum:  10 - {even_sum + odd_sum:3} %  10 = {luhn_sum:3}')
 
     # Perform the check
     if options.check:
@@ -128,8 +122,8 @@ if __name__ == '__main__':
     """
     Options
     """
-    parser.add_argument('-c', '--check',
-                        action='store_true', dest='check', default=False,
+    parser.add_argument('-c', '--check', default=False,
+                        action='store_true', dest='check',
                         help='perform a check on the number and return 0 on success')
 
     parser.add_argument('--debug', const=10, default=20,
